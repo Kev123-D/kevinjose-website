@@ -108,10 +108,12 @@
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Instrument+Serif:ital@1&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#000000}
-a{color:#F2EFEB}a:hover{color:#D9FF03}
+body{margin:0;background:#FFFFFF}
+.kj-panel img{border-radius:28px !important}
+a{color:#0E1116}a:hover{color:#4F6BED}
 .ff-track{display:flex;gap:16px;width:max-content;animation:ffScroll 48s linear infinite}
 .ff-track.rev{animation-direction:reverse;animation-duration:56s}
 .ff-row:hover .ff-track{animation-play-state:paused}
@@ -137,92 +139,135 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
   .kj-navlinks{display:none !important}
   .kj-hero-h{font-size:64px !important}
   .kj-h2{font-size:48px !important}
-  .kj-pad{padding-left:20px !important;padding-right:20px !important}
+  .kj-pad .ff-row{margin-left:-20px !important;margin-right:-20px !important}.kj-pad{padding-left:20px !important;padding-right:20px !important}
 }
 </style>
 <style>html{scroll-behavior:smooth}img{max-width:100%}
-.sn{position:relative;z-index:70;border-bottom:1px solid #333232;background:#000}
+.gh{position:relative;margin:12px;border-radius:40px;overflow:hidden;min-height:max(720px,94vh);display:flex;flex-direction:column;color:#0E1116;isolation:isolate}
+.gh-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center bottom;z-index:-2;transform:scale(1.02)}
+.gh::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(255,250,244,.62) 0%,rgba(255,250,244,.45) 40%,rgba(255,250,244,.05) 65%,rgba(255,250,244,0) 80%)}
+.gh::after{content:"";position:absolute;inset:14px;border-radius:30px;pointer-events:none;border:1px solid rgba(255,255,255,.55);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),inset 0 30px 80px rgba(255,255,255,.18)}
+.gh-nav{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:30px 44px 0}
+.gh-logo{font-family:'Manrope',sans-serif;font-weight:700;font-size:22px;letter-spacing:-.02em;color:#0E1116;text-decoration:none;white-space:nowrap}
+.gh-logo span{color:#FD572A}
+.glass,.gh-pill,.gh-cta,.gh-badge,.gh-form,.gh-menu summary,.gh-panel{background:linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,.18));-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);border:1px solid rgba(255,255,255,.7);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -1px 0 rgba(255,255,255,.25),0 10px 30px rgba(40,30,20,.12)}
+.gh-pill{display:flex;gap:4px;padding:6px;border-radius:999px}
+.gh-pill a{padding:10px 14px;border-radius:999px;color:#1E242B;text-decoration:none;font:500 13.5px 'Manrope',sans-serif;white-space:nowrap;transition:background .2s}
+.gh-pill a:hover{background:rgba(255,255,255,.65)}
+.gh-cta{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;background:#FFFFFF;color:#0E1116;font:600 14px 'Manrope',sans-serif;text-decoration:none;white-space:nowrap}
+.gh-cta:hover{background:#DCF76A}
+.gh-menu{display:none;position:relative}
+.gh-menu summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;min-height:46px;padding:0 18px;border-radius:999px;color:#0E1116;font:600 14px 'Manrope',sans-serif}
+.gh-menu summary::-webkit-details-marker{display:none}
+.gh-panel{position:absolute;right:0;top:calc(100% + 10px);width:min(300px,calc(100vw - 48px));padding:8px;border-radius:24px;background:rgba(255,255,255,.82)}
+.gh-panel a{display:block;padding:12px 14px;border-radius:14px;color:#0E1116;text-decoration:none;font:15px 'Manrope',sans-serif}
+.gh-panel a:hover{background:rgba(14,17,22,.06)}
+.gh-body{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:5vh 24px 56px}
+.gh-badge{margin:0;padding:8px 16px;border-radius:999px;font:500 12px 'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:#1E242B}
+.gh-title{margin:22px 0 0;font:500 clamp(48px,8.4vw,128px)/0.98 'Manrope',sans-serif;letter-spacing:-.055em;background:linear-gradient(180deg,#0E1116 0%,#2A3038 60%,#4A525C 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gh-title span{background:linear-gradient(90deg,#0E1116 0%,#6B7480 55%,#0E1116 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gh-sub{margin:22px 0 0;max-width:620px;font:500 17px/1.55 'Manrope',sans-serif;color:#1E242B}
+.gh-form{margin-top:auto;display:flex;align-items:center;gap:8px;width:min(640px,100%);padding:7px 7px 7px 24px;border-radius:999px}
+.gh-form input{flex:1;min-width:0;border:0;background:transparent;font:500 16px 'Manrope',sans-serif;color:#0E1116;outline:none;min-height:44px}
+.gh-form input::placeholder{color:#3A424C}
+.gh-form button{flex:none;min-height:46px;padding:0 22px;border:0;border-radius:999px;background:#FFFFFF;color:#0E1116;font:600 14px 'Manrope',sans-serif;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.gh-form button:hover{background:#DCF76A}
+.gh-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.gh-slides{overflow:hidden}
+.gh-strip{display:flex;width:400%;height:100%;animation:ghSlide 18s cubic-bezier(.7,0,.3,1) infinite}
+.gh-strip img{width:25%;height:100%;object-fit:cover;flex:none}
+@keyframes ghSlide{0%,27%{transform:translateX(0)}33%,60%{transform:translateX(-25%)}66%,93%{transform:translateX(-50%)}100%{transform:translateX(-75%)}}
+@media (prefers-reduced-motion: reduce){.gh-strip{animation:none}}
+.gh{color:#FFFFFF}
+.gh::before{background:linear-gradient(180deg,rgba(8,10,14,.55) 0%,rgba(8,10,14,.38) 45%,rgba(8,10,14,.12) 70%,rgba(8,10,14,.35) 100%) !important}
+.gh-logo{color:#FFFFFF !important}
+.gh-title{background:linear-gradient(180deg,#FFFFFF 0%,#F2F4F7 60%,#D9DEE5 100%) !important;-webkit-background-clip:text !important;background-clip:text !important}
+.gh-title span{background:linear-gradient(90deg,#FFFFFF 0%,#C9D1DB 55%,#FFFFFF 100%) !important;-webkit-background-clip:text !important;background-clip:text !important}
+.gh-sub,.gh-badge{color:#FFFFFF !important}
+.gh-pill a{color:#FFFFFF !important}.gh-pill a:hover{background:rgba(255,255,255,.22) !important}
+.gh-form input{color:#FFFFFF !important}.gh-form input::placeholder{color:rgba(255,255,255,.85) !important}
+.gh-menu summary{color:#FFFFFF !important}
+.gh-pill,.gh-badge,.gh-form,.gh-menu summary{background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.08)) !important;border-color:rgba(255,255,255,.45) !important}
+.gh-sub{text-shadow:0 1px 12px rgba(0,0,0,.35)}
+@media (max-width:1180px){.gh-pill,.gh-nav>.gh-cta{display:none}.gh-menu{display:block}.gh-nav{padding:26px 26px 0}}
+@media (max-width:640px){.gh{margin:8px;border-radius:30px;min-height:720px}.gh::after{inset:10px;border-radius:22px}.gh-body{padding:8vh 18px 40px}.gh-form{padding-left:18px}.gh-form button{padding:0 16px}}
+
+.sn{position:relative;z-index:70;border-bottom:1px solid #E5E8EC;background:transparent}
 .sn-in{max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 56px}
-.sn-logo{font-family:Anton,Impact,sans-serif;font-size:26px;letter-spacing:.04em;text-decoration:none;color:#F2EFEB;white-space:nowrap}
-.sn-logo span{color:#D9FF03}
-.sn-links{display:flex;gap:24px;font-size:14px;font-family:Inter,system-ui,sans-serif}
-.sn-links a{color:#D9D6D2;text-decoration:none;white-space:nowrap;padding:10px 0}
-.sn-links a:hover,.sn-links a[aria-current=page]{color:#D9FF03}
-.sn-cta{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;background:#D9FF03;color:#000 !important;font:600 14px Inter,system-ui,sans-serif;text-decoration:none;white-space:nowrap}
+
+.sn-logo{font-family:'Manrope',sans-serif;font-weight:700;font-size:24px;letter-spacing:-.02em;text-decoration:none;color:#0E1116;white-space:nowrap}
+.sn-logo span{color:#FD572A}
+.sn-links{display:flex;gap:26px;font-size:12.5px;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em}
+.sn-links a{color:#3A3A3A;text-decoration:none;white-space:nowrap;padding:10px 0}
+.sn-links a:hover,.sn-links a[aria-current=page]{color:#4F6BED}
+.sn-cta{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;background:#DCF76A;color:#0E1116 !important;font:600 14px Inter,system-ui,sans-serif;text-decoration:none;white-space:nowrap}
 .sn-menu{display:none;position:relative}
-.sn-menu summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;min-height:46px;padding:0 18px;border:1px solid #5A5959;border-radius:999px;color:#F2EFEB;font:500 14px Inter,system-ui,sans-serif}
+.sn-menu summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;min-height:46px;padding:0 18px;border:1px solid #0E1116;border-radius:999px;color:#0E1116;font:500 14px Inter,system-ui,sans-serif}
 .sn-menu summary::-webkit-details-marker{display:none}
-.sn-panel{position:absolute;right:0;top:calc(100% + 10px);width:min(300px,calc(100vw - 40px));padding:8px;background:#201F1F;border:1px solid #333232;border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.55)}
-.sn-panel a{display:block;padding:12px 14px;border-radius:8px;color:#F2EFEB;text-decoration:none;font:15px Inter,system-ui,sans-serif}
-.sn-panel a:hover,.sn-panel a[aria-current=page]{background:#333232;color:#D9FF03}
-.sn-panel .sn-sep{border-top:1px solid #333232;margin-top:6px;padding-top:12px}
+.sn-panel{position:absolute;right:0;top:calc(100% + 10px);width:min(300px,calc(100vw - 40px));padding:8px;background:#F1F3F5;border:1px solid #E5E8EC;border-radius:20px;box-shadow:0 18px 40px rgba(0,0,0,.12)}
+.sn-panel a{display:block;padding:12px 14px;border-radius:8px;color:#0E1116;text-decoration:none;font:15px Inter,system-ui,sans-serif}
+.sn-panel a:hover,.sn-panel a[aria-current=page]{background:#F0EDE8;color:#4F6BED}
+.sn-panel .sn-sep{border-top:1px solid #E5E8EC;margin-top:6px;padding-top:12px}
 @media (max-width:1180px){.sn-links,.sn-in>.sn-cta{display:none}.sn-menu{display:block}.sn-in{padding:16px 20px}}
+
+.sn{border-bottom:0}
 </style>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-<div style="width: 100%; background: #000000; color: #F2EFEB; font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.55">
+<div style="width: 100%; background: #FFFFFF; color: #0E1116; font-family: 'Manrope', Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.55">
 
-  <!-- Ticker -->
-  <div style="border-bottom: 1px solid #333232; padding: 10px 0; overflow: hidden; white-space: nowrap; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #A6A8AB; text-align: center">
-    Dubai, UAE · Brand films · Brand building · Paid social &amp; ads · Weddings · Real estate · Gear rental
-  </div>
-
-  <!-- Nav -->
-  <header class="sn"><div class="sn-in">
-  <a class="sn-logo" href="/">KEVIN JOSE<span>.</span></a>
-  <nav class="sn-links" aria-label="Services"><a href="/brand-film-dubai/">Brand Films</a><a href="/food-product-photography-dubai/">Food &amp; Product</a><a href="/real-estate-photography-dubai/">Real Estate</a><a href="/wedding-photographer-dubai/">Weddings</a><a href="/branding-dubai/">Branding</a><a href="/digital-marketing-ads-dubai/">Digital Ads</a><a href="/camera-rental-dubai/">Gear Rental</a></nav>
-  <a class="sn-cta" href="#contact">Start a project →</a>
-  <details class="sn-menu"><summary aria-label="Open menu"><svg aria-hidden="true" width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M0 1h16M0 6h16M0 11h16"></path></svg>Menu</summary>
-    <div class="sn-panel"><a href="/brand-film-dubai/">Brand Films</a><a href="/food-product-photography-dubai/">Food &amp; Product</a><a href="/real-estate-photography-dubai/">Real Estate</a><a href="/wedding-photographer-dubai/">Weddings</a><a href="/branding-dubai/">Branding</a><a href="/digital-marketing-ads-dubai/">Digital Ads</a><a href="/camera-rental-dubai/">Gear Rental</a><a class="sn-sep" href="#work">Work</a><a href="#contact" style="color:#D9FF03">Start a project →</a></div>
-  </details>
-</div></header>
-
-  <!-- Hero -->
-  <section id="top" class="kj-pad" style="padding: 88px 56px 72px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-end">
-    <div style="flex: 999 1 560px; min-width: 0">
-      <h1 style="margin: 0 0 24px; font-size: 13px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: #A6A8AB">Dubai Photographer, Filmmaker, Brand Designer &amp; Digital Ads Specialist</h1>
-      <p class="kj-hero-h" style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 132px; line-height: 0.92; letter-spacing: 0.005em; text-transform: uppercase">Shoot it.<br>Build it.<br><span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; text-transform: none; color: #D9FF03; font-size: 0.95em">Sell it.</span></p>
-      <p style="margin: 32px 0 0; max-width: 620px; font-size: 19px; color: #D9D6D2">One creative partner for the whole journey — the photos and films, the brand behind them, and the paid ads that put them in front of the right people — in Dubai, Abu Dhabi, Sharjah and across the UAE.</p>
-      <div style="display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap">
-        <a href="#contact" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; background: #D9FF03; color: #000000; font-weight: 600; text-decoration: none; border-radius: 999px">Book a discovery call</a>
-        <a href="#work" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border: 1px solid #5A5959; text-decoration: none; border-radius: 999px">See the work</a>
-      </div>
-    </div>
-    <div style="flex: 1 1 360px; min-width: 0">
-      <img src="images/ly-tulips.jpg" alt="Pink tulips tied with Layla Flowers ribbon — brand and product photography by Kevin Jose, Dubai" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px">
-      <p style="margin: 12px 0 0; font-size: 12px; color: #8E9093; letter-spacing: 0.12em; text-transform: uppercase">Layla Flowers · brand build &amp; photography</p>
+  <!-- Hero: glass window -->
+  <section id="top" class="gh">
+    <div class="gh-bg gh-slides" aria-label="Featured work"><div class="gh-strip"><img src="images/pf-red-dress-dunes.jpg" alt="Model in a flowing red gown on a desert dune against a blue sky, fashion photography by Kevin Jose in Dubai" style="object-position:60% 50%"><img src="images/pf-dog-sofa.jpg" alt="" aria-hidden="true" style="object-position:55% 50%"><img src="images/pf-blue-suit-lilies.jpg" alt="" aria-hidden="true" style="object-position:50% 40%"><img src="images/pf-red-dress-dunes.jpg" alt="" aria-hidden="true" style="object-position:60% 50%"></div></div>
+    <header class="gh-nav">
+      <a class="gh-logo" href="/">KEVIN JOSE<span>.</span></a>
+      <nav class="gh-pill" aria-label="Services"><a href="/brand-film-dubai/">Brand Films</a><a href="/food-product-photography-dubai/">Food &amp; Product</a><a href="/real-estate-photography-dubai/">Real Estate</a><a href="/wedding-photographer-dubai/">Weddings</a><a href="/branding-dubai/">Branding</a><a href="/digital-marketing-ads-dubai/">Digital Ads</a><a href="/camera-rental-dubai/">Gear Rental</a></nav>
+      <a class="gh-cta" href="#contact">Start a project</a>
+      <details class="gh-menu"><summary aria-label="Open menu"><svg aria-hidden="true" width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M0 1h16M0 6h16M0 11h16"></path></svg>Menu</summary>
+        <div class="gh-panel"><a href="/brand-film-dubai/">Brand Films</a><a href="/food-product-photography-dubai/">Food &amp; Product</a><a href="/real-estate-photography-dubai/">Real Estate</a><a href="/wedding-photographer-dubai/">Weddings</a><a href="/branding-dubai/">Branding</a><a href="/digital-marketing-ads-dubai/">Digital Ads</a><a href="/camera-rental-dubai/">Gear Rental</a><a href="#work">Work</a><a href="#contact" style="font-weight:600">Start a project →</a></div>
+      </details>
+    </header>
+    <div class="gh-body">
+      <h1 class="gh-badge">Dubai photographer, filmmaker, brand &amp; digital ads studio</h1>
+      <p class="gh-title">Shoot it. Build it.<br><span>Sell it.</span></p>
+      <p class="gh-sub">One creative partner for the photos and films, the brand behind them, and the paid ads that put them in front of the right people across the UAE.</p>
+      <form class="gh-form" id="gh-form">
+        <label for="gh-input" class="gh-sr">Tell me about your project</label>
+        <input id="gh-input" type="text" placeholder="Tell me about your project…" autocomplete="off">
+        <button type="submit">Start a project</button>
+      </form>
     </div>
   </section>
 
   <!-- Clients -->
-  <section id="clients" class="kj-pad" style="padding: 56px 56px 72px; border-top: 1px solid #333232">
+  <section id="clients" class="kj-pad" style="padding: 56px 56px 72px; border-top: 1px solid #E5E8EC">
     <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 32px">
-      <h2 style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 40px; line-height: 1; text-transform: uppercase">Brands I've worked with</h2>
-      <p style="margin: 0; max-width: 420px; color: #A6A8AB; font-size: 15px">Shot, built or grown — across Dubai, the UAE and beyond.</p>
+      <h2 style="margin: 0; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 40px; line-height: 1.02; text-transform: none; letter-spacing: -0.035em">Brands I've worked with</h2>
+      <p style="margin: 0; max-width: 420px; color: #555555; font-size: 15px">Shot, built or grown — across Dubai, the UAE and beyond.</p>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); border-top: 1px solid #333232; border-left: 1px solid #333232">
-        <div style="min-height: 120px; display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; border-right: 1px solid #333232; border-bottom: 1px solid #333232; text-align: center"><img src="images/ly-logo-light.png" alt="Layla Flowers" style="display: block; width: 160px; height: auto"></div>
-        <div style="min-height: 120px; display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; border-right: 1px solid #333232; border-bottom: 1px solid #333232; text-align: center"><img src="images/sb-logo-light.png" alt="Sama Beirut" style="display: block; width: 104px; height: auto"></div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; border-top: 0 !important; border-left: 0 !important; border-top: 1px solid #E5E8EC; border-left: 1px solid #E5E8EC">
+        <div style="min-height: 120px; display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; background: #0E1116; border-radius: 28px; border: 0 !important; border-right: 1px solid #E5E8EC; border-bottom: 1px solid #E5E8EC; text-align: center"><img src="images/ly-logo-light.png" alt="Layla Flowers" style="display: block; width: 160px; height: auto"></div>
+        <div style="min-height: 120px; display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; background: #0E1116; border-radius: 28px; border: 0 !important; border-right: 1px solid #E5E8EC; border-bottom: 1px solid #E5E8EC; text-align: center"><img src="images/sb-logo-light.png" alt="Sama Beirut" style="display: block; width: 104px; height: auto"></div>
     </div>
   </section>
 
   <!-- Three pillars -->
-  <section id="services" class="kj-pad" style="padding: 96px 56px; border-top: 1px solid #333232">
+  <section id="services" class="kj-pad" style="padding: 96px 56px; border-top: 1px solid #E5E8EC">
     <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 56px">
       <div>
-        <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #D9FF03">001 — What I do</p>
-        <h2 class="kj-h2" style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 72px; line-height: 1; text-transform: uppercase">Three services.<br>One story.</h2>
+        <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Mono', monospace; color: #0E1116">001 — What I do</p>
+        <h2 class="kj-h2" style="margin: 0; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 72px; line-height: 1.02; text-transform: none; letter-spacing: -0.035em">Three services.<br>One story.</h2>
       </div>
-      <p style="margin: 0; max-width: 420px; color: #D9D6D2">Hire me for one, or for all three. Photography, videography, branding and paid social for UAE businesses — built to work together, so the same eye that shoots your brand also designs it and runs its ads.</p>
+      <p style="margin: 0; max-width: 420px; color: #3A3A3A">Hire me for one, or for all three. Photography, videography, branding and paid social for UAE businesses — built to work together, so the same eye that shoots your brand also designs it and runs its ads.</p>
     </div>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
-      <article style="background: #201F1F; border: 1px solid #333232; border-radius: 8px; padding: 36px; display: flex; flex-direction: column; gap: 20px">
-        <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FD572A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h3l2-3h8l2 3h3v13H3z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-        <h3 style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 34px; text-transform: uppercase">Photo &amp; Film</h3>
-        <p style="margin: 0; color: #D9D6D2">Brand films, lifestyle, product, food, weddings and real estate — lit honestly, cut with intent.</p>
-        <ul style="margin: 0; padding: 0 0 0 18px; color: #A6A8AB; display: flex; flex-direction: column; gap: 6px">
+      <article style="background: #F1F3F5; border: 1px solid #E5E8EC; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 20px">
+        <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0E1116" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h3l2-3h8l2 3h3v13H3z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+        <h3 style="margin: 0; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 34px; text-transform: none; letter-spacing: -0.035em">Photo &amp; Film</h3>
+        <p style="margin: 0; color: #3A3A3A">Brand films, lifestyle, product, food, weddings and real estate — lit honestly, cut with intent.</p>
+        <ul style="margin: 0; padding: 0 0 0 18px; color: #555555; display: flex; flex-direction: column; gap: 6px">
           <li><a href="/brand-film-dubai/" style="color: inherit; text-underline-offset: 3px">Brand films &amp; social cutdowns</a></li>
           <li><a href="/food-product-photography-dubai/" style="color: inherit; text-underline-offset: 3px">Product, food &amp; lifestyle photography</a></li>
           <li><a href="/real-estate-photography-dubai/" style="color: inherit; text-underline-offset: 3px">Real estate &amp; property content</a></li>
@@ -230,11 +275,11 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
         </ul>
         <a href="/brand-film-dubai/" style="margin-top: auto; font-weight: 600">Photo &amp; film services →</a>
       </article>
-      <article id="brand-card" style="background: #201F1F; border: 1px solid #333232; border-radius: 8px; padding: 36px; display: flex; flex-direction: column; gap: 20px">
-        <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FD572A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"></path><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"></path></svg>
-        <h3 style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 34px; text-transform: uppercase">Brand Building</h3>
-        <p style="margin: 0; color: #D9D6D2">From a blank page to launch — the name, the look, the voice and the shop that sells it.</p>
-        <ul style="margin: 0; padding: 0 0 0 18px; color: #A6A8AB; display: flex; flex-direction: column; gap: 6px">
+      <article id="brand-card" style="background: #F1F3F5; border: 1px solid #E5E8EC; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 20px">
+        <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0E1116" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"></path><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"></path></svg>
+        <h3 style="margin: 0; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 34px; text-transform: none; letter-spacing: -0.035em">Brand Building</h3>
+        <p style="margin: 0; color: #3A3A3A">From a blank page to launch — the name, the look, the voice and the shop that sells it.</p>
+        <ul style="margin: 0; padding: 0 0 0 18px; color: #555555; display: flex; flex-direction: column; gap: 6px">
           <li>Brand strategy &amp; positioning</li>
           <li>Logo, identity &amp; guidelines</li>
           <li>Tone of voice &amp; mood</li>
@@ -242,43 +287,43 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
         </ul>
         <a href="/branding-dubai/" style="margin-top: auto; font-weight: 600">Branding services →</a>
       </article>
-      <article style="background: #D9FF03; color: #000000; border-radius: 8px; padding: 36px; display: flex; flex-direction: column; gap: 20px">
-        <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></svg>
-        <h3 style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 34px; text-transform: uppercase">Digital Marketing Ads</h3>
-        <p style="margin: 0; color: #201F1F">Paid social and search campaigns for UAE businesses on Meta, TikTok, Google and Snapchat — with creative shot in-house, so the ads actually look good.</p>
-        <ul style="margin: 0; padding: 0 0 0 18px; color: #201F1F; display: flex; flex-direction: column; gap: 6px">
+      <article style="background: #DCF76A; color: #0E1116; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 20px">
+        <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0E1116" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></svg>
+        <h3 style="margin: 0; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 34px; text-transform: none; letter-spacing: -0.035em">Digital Marketing Ads</h3>
+        <p style="margin: 0; color: #2B3138">Paid social and search campaigns for UAE businesses on Meta, TikTok, Google and Snapchat — with creative shot in-house, so the ads actually look good.</p>
+        <ul style="margin: 0; padding: 0 0 0 18px; color: #2B3138; display: flex; flex-direction: column; gap: 6px">
           <li>Ad creative: video, stills &amp; reels</li>
           <li>Campaign setup &amp; UAE targeting</li>
           <li>A/B testing &amp; optimisation</li>
           <li>Monthly performance reports</li>
         </ul>
-        <a href="/digital-marketing-ads-dubai/" style="margin-top: auto; font-weight: 600; color: #000000">Digital ads services →</a>
+        <a href="/digital-marketing-ads-dubai/" style="margin-top: auto; font-weight: 600; color: #0E1116">Digital ads services →</a>
       </article>
     </div>
   </section>
 
   <!-- Process -->
-  <section class="kj-pad" style="padding: 96px 56px; background: #F2EFEB; color: #000000">
-    <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #695AC6">002 — How it connects</p>
-    <h2 class="kj-h2" style="margin: 0 0 56px; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 72px; line-height: 1; text-transform: uppercase">From first frame <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; text-transform: none">to first sale.</span></h2>
+  <section class="kj-pad" style="margin: 16px; border-radius: 36px; padding: 96px 56px; background: #F1F3F5; color: #000000">
+    <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Mono', monospace; color: #4F6BED">002 — How it connects</p>
+    <h2 class="kj-h2" style="margin: 0 0 56px; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 72px; line-height: 1.02; text-transform: none; letter-spacing: -0.035em">From first frame <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; text-transform: none">to first sale.</span></h2>
     <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; border-top: 2px solid #000000">
       <li style="padding: 28px 28px 0 0; display: flex; flex-direction: column; gap: 10px">
-        <span style="font-family: Anton, Impact, sans-serif; font-size: 56px; line-height: 1">01</span>
+        <span style="font-family: 'Manrope', sans-serif; font-size: 56px; line-height: 1.02; letter-spacing: -0.035em">01</span>
         <strong style="font-size: 20px">Define</strong>
         <span style="color: #5A5959">Who you are, who you're for, and what makes you different. Strategy before style.</span>
       </li>
       <li style="padding: 28px 28px 0 0; display: flex; flex-direction: column; gap: 10px">
-        <span style="font-family: Anton, Impact, sans-serif; font-size: 56px; line-height: 1">02</span>
+        <span style="font-family: 'Manrope', sans-serif; font-size: 56px; line-height: 1.02; letter-spacing: -0.035em">02</span>
         <strong style="font-size: 20px">Build</strong>
         <span style="color: #5A5959">Logo, guidelines, tone &amp; mood — then the website or online store to sell from.</span>
       </li>
       <li style="padding: 28px 28px 0 0; display: flex; flex-direction: column; gap: 10px">
-        <span style="font-family: Anton, Impact, sans-serif; font-size: 56px; line-height: 1">03</span>
+        <span style="font-family: 'Manrope', sans-serif; font-size: 56px; line-height: 1.02; letter-spacing: -0.035em">03</span>
         <strong style="font-size: 20px">Shoot</strong>
         <span style="color: #5A5959">Photo and film content made for the brand — and cut for every ad placement.</span>
       </li>
       <li style="padding: 28px 28px 0 0; display: flex; flex-direction: column; gap: 10px">
-        <span style="font-family: Anton, Impact, sans-serif; font-size: 56px; line-height: 1">04</span>
+        <span style="font-family: 'Manrope', sans-serif; font-size: 56px; line-height: 1.02; letter-spacing: -0.035em">04</span>
         <strong style="font-size: 20px">Grow</strong>
         <span style="color: #5A5959">Launch paid campaigns, test what works, report monthly and scale the winners.</span>
       </li>
@@ -289,31 +334,31 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
   <section id="brand" class="kj-pad" style="padding: 96px 56px 72px">
     <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
       <div>
-        <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #D9FF03">003 — Brand Building</p>
-        <h2 class="kj-h2" style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 72px; line-height: 1; text-transform: uppercase">Brands built<br>logo to launch.</h2>
+        <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Mono', monospace; color: #0E1116">003 — Brand Building</p>
+        <h2 class="kj-h2" style="margin: 0; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 72px; line-height: 1.02; text-transform: none; letter-spacing: -0.035em">Brands built<br>logo to launch.</h2>
       </div>
-      <p style="margin: 0; max-width: 440px; color: #D9D6D2">Every piece designed, shot and launched in-house — from the first sketch of the logo to the packaging, the photography and the online store. Scroll through three full builds below.</p>
+      <p style="margin: 0; max-width: 440px; color: #3A3A3A">Every piece designed, shot and launched in-house — from the first sketch of the logo to the packaging, the photography and the online store. Scroll through three full builds below.</p>
     </div>
   </section>
 
   <!-- Layla featured build -->
-  <section id="layla" style="padding: 96px 0; border-top: 1px solid #333232">
+  <section id="layla" style="padding: 96px 0; border-top: 1px solid #E5E8EC">
     <div class="kj-pad" style="padding: 0 56px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center; margin-bottom: 64px">
       <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
-        <p style="margin: 0; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #D9FF03">Featured build — Florist, Dubai</p>
-        <h2 class="kj-h2" style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 96px; line-height: 0.95; text-transform: uppercase">Layla Flowers<span style="color: #D9FF03">.</span></h2>
-        <p style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 32px; line-height: 1.2; color: #F2EFEB">From a blank page to launch.</p>
-        <p style="margin: 0; font-size: 17px; color: #D9D6D2; max-width: 560px">A Dubai florist brand built from zero — name, logo and colour palette, brand guidelines, wrapping paper, ribbon, tags and message cards, a soft romantic mood carried through the product and lifestyle photography, then a full website and ecommerce launch.</p>
+        <p style="margin: 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Mono', monospace; color: #0E1116">Featured build — Florist, Dubai</p>
+        <h2 class="kj-h2" style="margin: 0; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 96px; line-height: 1.02; text-transform: none; letter-spacing: -0.035em">Layla Flowers<span style="color: #0E1116">.</span></h2>
+        <p style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 32px; line-height: 1.2; color: #0E1116">From a blank page to launch.</p>
+        <p style="margin: 0; font-size: 17px; color: #3A3A3A; max-width: 560px">A Dubai florist brand built from zero — name, logo and colour palette, brand guidelines, wrapping paper, ribbon, tags and message cards, a soft romantic mood carried through the product and lifestyle photography, then a full website and ecommerce launch.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 8px">
-          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #444343; border-radius: 999px; color: #D9D6D2">Logo &amp; identity</span>
-          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #444343; border-radius: 999px; color: #D9D6D2">Brand guidelines</span>
-          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #444343; border-radius: 999px; color: #D9D6D2">Packaging &amp; print</span>
-          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #444343; border-radius: 999px; color: #D9D6D2">Product photography</span>
-          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #444343; border-radius: 999px; color: #D9D6D2">Website &amp; ecommerce</span>
+          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #E5E8EC; border-radius: 999px; color: #3A3A3A">Logo &amp; identity</span>
+          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #E5E8EC; border-radius: 999px; color: #3A3A3A">Brand guidelines</span>
+          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #E5E8EC; border-radius: 999px; color: #3A3A3A">Packaging &amp; print</span>
+          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #E5E8EC; border-radius: 999px; color: #3A3A3A">Product photography</span>
+          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #E5E8EC; border-radius: 999px; color: #3A3A3A">Website &amp; ecommerce</span>
         </div>
       </div>
-      <div style="flex: 1 1 420px; min-width: 0; aspect-ratio: 4 / 3; background: #23225E; border-radius: 8px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center">
-        <svg aria-hidden="true" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%" fill="none" stroke="#F2EFEB" stroke-opacity="0.16" stroke-width="1">
+      <div style="flex: 1 1 420px; min-width: 0; aspect-ratio: 4 / 3; background: #23225E; border-radius: 28px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center">
+        <svg aria-hidden="true" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%" fill="none" stroke="#0E1116" stroke-opacity="0.16" stroke-width="1">
           <line class="ff-guide" pathLength="1" x1="0" y1="118" x2="400" y2="118" style="animation-duration: 9s"></line>
           <line class="ff-guide" pathLength="1" x1="0" y1="160" x2="400" y2="160" style="animation-duration: 9s"></line>
           <line class="ff-guide" pathLength="1" x1="0" y1="188" x2="400" y2="188" style="animation-duration: 9s"></line>
@@ -328,35 +373,35 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
       <div class="ff-row" style="overflow: hidden; width: 100%">
         <div class="ff-track" style="animation-duration: 44s">
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-bouquet.jpg" alt="Layla Flowers tulip bouquet in branded wrapping paper and ribbon" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-bouquet.jpg" alt="Layla Flowers tulip bouquet in branded wrapping paper and ribbon" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Product</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-tulips.jpg" alt="Pink tulips in a glass vase tied with Layla Flowers ribbon in morning light" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-tulips.jpg" alt="Pink tulips in a glass vase tied with Layla Flowers ribbon in morning light" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Lifestyle</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-orchids.jpg" alt="White orchids in a black Layla Flowers gift bag on a breakfast tray" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-orchids.jpg" alt="White orchids in a black Layla Flowers gift bag on a breakfast tray" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Gifting</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-roses.jpg" alt="Cream roses in a white Layla Flowers hat box beside perfume and a watch" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-roses.jpg" alt="Cream roses in a white Layla Flowers hat box beside perfume and a watch" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Luxury box</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-bouquet.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-bouquet.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Product</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-tulips.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-tulips.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Lifestyle</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-orchids.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-orchids.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Gifting</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-roses.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-roses.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Luxury box</figcaption>
           </figure>
         </div>
@@ -364,59 +409,59 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
       <div class="ff-row" style="overflow: hidden; width: 100%">
         <div class="ff-track rev" style="animation-duration: 64s">
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-embroidery.jpg" alt="Layla Flowers logo embroidered on navy fabric" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-embroidery.jpg" alt="Layla Flowers logo embroidered on navy fabric" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Embroidery</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-ribbon.jpg" alt="Blush satin ribbon printed with the Layla Flowers logo" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-ribbon.jpg" alt="Blush satin ribbon printed with the Layla Flowers logo" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Ribbon</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-wrap-logo.jpg" alt="White wrapping paper with a repeating Layla Flowers logo pattern" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-wrap-logo.jpg" alt="White wrapping paper with a repeating Layla Flowers logo pattern" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Wrapping paper</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-wrap-blush.jpg" alt="Blush brand-colour wrapping paper roll" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-wrap-blush.jpg" alt="Blush brand-colour wrapping paper roll" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Brand colour</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-tag-navy.jpg" alt="Navy Layla Flowers product tag with gold eyelet" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-tag-navy.jpg" alt="Navy Layla Flowers product tag with gold eyelet" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Tags</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-tag-blush.jpg" alt="Blush Layla Flowers product tag" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-tag-blush.jpg" alt="Blush Layla Flowers product tag" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Tags</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-message-card.jpg" alt="Bouquet in patterned Layla Flowers wrap with a navy message card" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-message-card.jpg" alt="Bouquet in patterned Layla Flowers wrap with a navy message card" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Message card</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-embroidery.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-embroidery.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Embroidery</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-ribbon.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-ribbon.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Ribbon</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-wrap-logo.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-wrap-logo.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Wrapping paper</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-wrap-blush.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-wrap-blush.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Brand colour</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-tag-navy.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-tag-navy.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Tags</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-tag-blush.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-tag-blush.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Tags</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ly-message-card.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/ly-message-card.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Message card</figcaption>
           </figure>
         </div>
@@ -425,22 +470,22 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
   </section>
 
   <!-- Sama Beirut featured build -->
-  <section id="sama" style="padding: 96px 0; border-top: 1px solid #333232">
+  <section id="sama" style="padding: 96px 0; border-top: 1px solid #E5E8EC">
     <div class="kj-pad" style="padding: 0 56px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center; margin-bottom: 64px">
       <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
-        <p style="margin: 0; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #D9FF03">Featured build — Butchery &amp; food, Beirut</p>
-        <h2 class="kj-h2" style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 96px; line-height: 0.95; text-transform: uppercase">Sama Beirut<span style="color: #D9FF03">.</span></h2>
-        <p style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 32px; line-height: 1.2; color: #F2EFEB">Butchery &amp; more.</p>
-        <p style="margin: 0; font-size: 17px; color: #D9D6D2; max-width: 560px">A butchery and food brand designed from scratch — a cleaver-and-cedar logo, identity system and guidelines, carried onto signage, the delivery van, packaging and print, with a bold, appetite-driven mood for the food photography and a website with online ordering.</p>
+        <p style="margin: 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Mono', monospace; color: #0E1116">Featured build — Butchery &amp; food, Beirut</p>
+        <h2 class="kj-h2" style="margin: 0; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 96px; line-height: 1.02; text-transform: none; letter-spacing: -0.035em">Sama Beirut<span style="color: #0E1116">.</span></h2>
+        <p style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 32px; line-height: 1.2; color: #0E1116">Butchery &amp; more.</p>
+        <p style="margin: 0; font-size: 17px; color: #3A3A3A; max-width: 560px">A butchery and food brand designed from scratch — a cleaver-and-cedar logo, identity system and guidelines, carried onto signage, the delivery van, packaging and print, with a bold, appetite-driven mood for the food photography and a website with online ordering.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 8px">
-          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #444343; border-radius: 999px; color: #D9D6D2">Logo &amp; identity</span>
-          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #444343; border-radius: 999px; color: #D9D6D2">Signage &amp; vehicle livery</span>
-          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #444343; border-radius: 999px; color: #D9D6D2">Packaging</span>
-          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #444343; border-radius: 999px; color: #D9D6D2">Food photography</span>
-          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #444343; border-radius: 999px; color: #D9D6D2">Website &amp; online ordering</span>
+          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #E5E8EC; border-radius: 999px; color: #3A3A3A">Logo &amp; identity</span>
+          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #E5E8EC; border-radius: 999px; color: #3A3A3A">Signage &amp; vehicle livery</span>
+          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #E5E8EC; border-radius: 999px; color: #3A3A3A">Packaging</span>
+          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #E5E8EC; border-radius: 999px; color: #3A3A3A">Food photography</span>
+          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #E5E8EC; border-radius: 999px; color: #3A3A3A">Website &amp; online ordering</span>
         </div>
       </div>
-      <div style="flex: 1 1 420px; min-width: 0; aspect-ratio: 4 / 3; background: #7A1414; border-radius: 8px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center">
+      <div style="flex: 1 1 420px; min-width: 0; aspect-ratio: 4 / 3; background: #7A1414; border-radius: 28px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center">
         <svg aria-hidden="true" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%" fill="none" stroke="#EFDCC0" stroke-opacity="0.18" stroke-width="1">
           <line class="ff-guide" pathLength="1" x1="0" y1="78" x2="400" y2="78" style="animation-duration: 9s"></line>
           <line class="ff-guide" pathLength="1" x1="0" y1="152" x2="400" y2="152" style="animation-duration: 9s"></line>
@@ -456,51 +501,51 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
       <div class="ff-row" style="overflow: hidden; width: 100%">
         <div class="ff-track" style="animation-duration: 46s">
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-storefront.jpg" alt="Sama Beirut butchery sign on a concrete storefront wall" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-storefront.jpg" alt="Sama Beirut butchery sign on a concrete storefront wall" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Signage</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-van2.jpg" alt="Maroon Sama Beirut delivery van with cream logo livery" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-van2.jpg" alt="Maroon Sama Beirut delivery van with cream logo livery" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Delivery van</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-meatbox.jpg" alt="Sama Beirut kraft delivery box with lamb chops, beef cubes, kofta and chicken skewers" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-meatbox.jpg" alt="Sama Beirut kraft delivery box with lamb chops, beef cubes, kofta and chicken skewers" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Meat box</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-trays.jpg" alt="Steaks, lamb chops and chicken cuts on trays with Sama Beirut labels" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-trays.jpg" alt="Steaks, lamb chops and chicken cuts on trays with Sama Beirut labels" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Food photography</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-interior-1.jpg" alt="Bright white-tiled butchery interior with dry-aged meat counters" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-interior-1.jpg" alt="Bright white-tiled butchery interior with dry-aged meat counters" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Interior mood</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-interior-2.jpg" alt="Butchery counter and communal wooden table" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-interior-2.jpg" alt="Butchery counter and communal wooden table" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Interior mood</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-storefront.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-storefront.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Signage</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-van2.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-van2.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Delivery van</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-meatbox.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-meatbox.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Meat box</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-trays.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-trays.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Food photography</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-interior-1.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-interior-1.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Interior mood</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-interior-2.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-interior-2.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Interior mood</figcaption>
           </figure>
         </div>
@@ -508,35 +553,35 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
       <div class="ff-row" style="overflow: hidden; width: 100%">
         <div class="ff-track rev" style="animation-duration: 52s">
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-card.jpg" alt="Hand holding a white Sama Beirut business card" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-card.jpg" alt="Hand holding a white Sama Beirut business card" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Business card</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-bag.jpg" alt="White paper bag with maroon Sama Beirut logo" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-bag.jpg" alt="White paper bag with maroon Sama Beirut logo" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Paper bag</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-box.jpg" alt="Maroon food container with a Sama Beirut sleeve" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-box.jpg" alt="Maroon food container with a Sama Beirut sleeve" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Food packaging</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-bread.jpg" alt="Baguettes in Sama Beirut branded bread bags" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-bread.jpg" alt="Baguettes in Sama Beirut branded bread bags" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Bakery bags</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-card.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-card.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Business card</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-bag.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-bag.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Paper bag</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-box.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-box.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Food packaging</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/sb-bread.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 6px">
+            <img src="images/sb-bread.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Bakery bags</figcaption>
           </figure>
         </div>
@@ -545,23 +590,23 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
   </section>
 
   <!-- Fairform featured build -->
-  <section id="fairform" style="padding: 96px 0; border-top: 1px solid #333232">
+  <section id="fairform" style="padding: 96px 0; border-top: 1px solid #E5E8EC">
     <div class="kj-pad" style="padding: 0 56px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center; margin-bottom: 64px">
       <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
-        <p style="margin: 0; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #D9FF03">Featured build — Concept brand</p>
-        <h2 class="kj-h2" style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 96px; line-height: 0.95; text-transform: uppercase">Fairform<span style="color: #D9FF03">.</span></h2>
-        <p style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 32px; line-height: 1.2; color: #F2EFEB">A new form of golf.</p>
-        <p style="margin: 0; font-size: 17px; color: #D9D6D2; max-width: 560px">A golf apparel brand created from scratch to show the full process — name, logo mark, colour system and packaging, then product and campaign imagery and an ecommerce website ready to sell.</p>
+        <p style="margin: 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Mono', monospace; color: #0E1116">Featured build — Concept brand</p>
+        <h2 class="kj-h2" style="margin: 0; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 96px; line-height: 1.02; text-transform: none; letter-spacing: -0.035em">Fairform<span style="color: #0E1116">.</span></h2>
+        <p style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 32px; line-height: 1.2; color: #0E1116">A new form of golf.</p>
+        <p style="margin: 0; font-size: 17px; color: #3A3A3A; max-width: 560px">A golf apparel brand created from scratch to show the full process — name, logo mark, colour system and packaging, then product and campaign imagery and an ecommerce website ready to sell.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 8px">
-          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #444343; border-radius: 999px; color: #D9D6D2">Naming</span>
-          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #444343; border-radius: 999px; color: #D9D6D2">Logo &amp; identity</span>
-          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #444343; border-radius: 999px; color: #D9D6D2">Product photography</span>
-          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #444343; border-radius: 999px; color: #D9D6D2">Campaign imagery</span>
-          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #444343; border-radius: 999px; color: #D9D6D2">Ecommerce website</span>
+          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #E5E8EC; border-radius: 999px; color: #3A3A3A">Naming</span>
+          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #E5E8EC; border-radius: 999px; color: #3A3A3A">Logo &amp; identity</span>
+          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #E5E8EC; border-radius: 999px; color: #3A3A3A">Product photography</span>
+          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #E5E8EC; border-radius: 999px; color: #3A3A3A">Campaign imagery</span>
+          <span style="font-size: 12px; padding: 6px 12px; border: 1px solid #E5E8EC; border-radius: 999px; color: #3A3A3A">Ecommerce website</span>
         </div>
       </div>
-      <div style="flex: 1 1 420px; min-width: 0; aspect-ratio: 4 / 3; background: #0B3B2A; border-radius: 8px; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px">
-        <svg aria-hidden="true" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%" fill="none" stroke="#F2EFEB" stroke-opacity="0.18" stroke-width="1">
+      <div style="flex: 1 1 420px; min-width: 0; aspect-ratio: 4 / 3; background: #0B3B2A; border-radius: 28px; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px">
+        <svg aria-hidden="true" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%" fill="none" stroke="#0E1116" stroke-opacity="0.18" stroke-width="1">
           <line class="ff-guide" pathLength="1" x1="0" y1="96" x2="400" y2="96"></line>
           <line class="ff-guide" pathLength="1" x1="0" y1="186" x2="400" y2="186"></line>
           <line class="ff-guide" pathLength="1" x1="140" y1="0" x2="140" y2="300"></line>
@@ -571,42 +616,42 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
           <line class="ff-guide" pathLength="1" x1="118" y1="236" x2="282" y2="46"></line>
         </svg>
         <svg role="img" aria-label="Fairform logo mark" viewBox="-2 -2 68 58" style="position: relative; width: 38%; height: auto; overflow: visible"><path class="ff-stroke" pathLength="1" d="M63.05,0.68 L62.76,0.28 L62.27,0.06 L59.89,0.05 L59.16,0.31 L57.38,1.49 L56.62,2.20 L55.93,3.06 L53.03,8.06 L51.93,9.56 L50.28,11.48 L48.50,13.09 L46.88,14.30 L44.75,15.45 L43.44,15.94 L41.88,16.16 L39.38,16.18 L36.19,15.83 L32.62,14.86 L29.56,13.83 L22.62,11.16 L20.88,10.78 L19.83,10.91 L19.02,11.54 L18.29,12.75 L15.69,18.94 L15.52,19.61 L15.59,20.11 L15.82,20.40 L16.16,20.60 L17.44,20.75 L53.62,20.71 L54.24,20.55 L55.14,19.90 L55.80,18.81 L62.77,2.88 L63.15,1.56 Z" fill="#D9FF03" stroke="#D9FF03" stroke-width="0.45" stroke-linejoin="round"></path><path class="ff-stroke b" pathLength="1" d="M1.16,53.31 L1.43,53.69 L1.91,53.89 L4.23,53.89 L5.05,53.59 L6.68,52.48 L7.50,51.73 L8.18,50.87 L10.93,46.12 L12.27,44.25 L13.58,42.75 L15.31,41.08 L17.00,39.77 L19.00,38.63 L20.56,38.04 L22.25,37.79 L24.56,37.75 L28.12,38.16 L32.12,39.29 L41.38,42.79 L43.25,43.21 L44.30,43.08 L45.06,42.51 L45.68,41.50 L49.19,33.25 L49.45,32.38 L49.40,31.82 L49.18,31.52 L48.84,31.33 L47.62,31.19 L11.31,31.23 L10.64,31.41 L9.85,32.04 L9.20,33.13 L1.36,51.00 L1.01,52.25 Z" fill="#D9FF03" stroke="#D9FF03" stroke-width="0.45" stroke-linejoin="round"></path></svg>
-        <p class="ff-word" style="position: relative; margin: 0; font-family: Inter, sans-serif; font-weight: 500; font-size: 28px; letter-spacing: 0.22em; color: #D9FF03">FAIRFORM</p>
+        <p class="ff-word" style="position: relative; margin: 0; font-family: Inter, sans-serif; font-weight: 500; font-size: 28px; letter-spacing: 0.22em; color: #0E1116">FAIRFORM</p>
       </div>
     </div>
     <div style="display: flex; flex-direction: column; gap: 16px">
       <div class="ff-row" style="overflow: hidden; width: 100%">
         <div class="ff-track">
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-golfer.jpg" alt="Model in a green Fairform polo and cream trousers seated on a block, studio campaign" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <img src="images/ff-golfer.jpg" alt="Model in a green Fairform polo and cream trousers seated on a block, studio campaign" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Campaign</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-studio-couple.jpg" alt="Couple in Fairform polos and cream golf wear in a green-lit studio" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <img src="images/ff-studio-couple.jpg" alt="Couple in Fairform polos and cream golf wear in a green-lit studio" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Campaign</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-couple.jpg" alt="Two models in forest-green and cream Fairform polos with golf clubs, studio campaign" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 12%; border-radius: 6px">
+            <img src="images/ff-couple.jpg" alt="Two models in forest-green and cream Fairform polos with golf clubs, studio campaign" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 12%; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Campaign</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-website.jpg" alt="Fairform ecommerce website homepage on a laptop" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <img src="images/ff-website.jpg" alt="Fairform ecommerce website homepage on a laptop" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Website</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-golfer.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <img src="images/ff-golfer.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Campaign</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-studio-couple.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <img src="images/ff-studio-couple.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Campaign</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-couple.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 12%; border-radius: 6px">
+            <img src="images/ff-couple.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 12%; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Campaign</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-website.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <img src="images/ff-website.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Website</figcaption>
           </figure>
         </div>
@@ -614,27 +659,27 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
       <div class="ff-row" style="overflow: hidden; width: 100%">
         <div class="ff-track rev">
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-polos.jpg" alt="Folded Fairform polos in forest green, cream, sage and lime" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <img src="images/ff-polos.jpg" alt="Folded Fairform polos in forest green, cream, sage and lime" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Product</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-skirts.jpg" alt="Fairform pleated golf skirts on a rail in five colourways" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <img src="images/ff-skirts.jpg" alt="Fairform pleated golf skirts on a rail in five colourways" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Product</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-bagtag.jpg" alt="Forest-green leather Fairform bag tag on a cream golf bag" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <img src="images/ff-bagtag.jpg" alt="Forest-green leather Fairform bag tag on a cream golf bag" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Accessories</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-polos.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <img src="images/ff-polos.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Product</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-skirts.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <img src="images/ff-skirts.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Product</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-bagtag.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <img src="images/ff-bagtag.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 22px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Accessories</figcaption>
           </figure>
         </div>
@@ -643,19 +688,19 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
   </section>
 
   <!-- Digital ads -->
-  <section id="ads" class="kj-pad" style="padding: 96px 56px; background: #201F1F; border-top: 1px solid #333232; border-bottom: 1px solid #333232">
+  <section id="ads" class="kj-pad" style="margin: 16px; border-radius: 36px; padding: 96px 56px; background: #F1F3F5; border: 0">
     <div style="display: flex; flex-wrap: wrap; gap: 56px">
       <div style="flex: 1 1 420px; min-width: 0">
-        <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #D9FF03">004 — Digital Marketing Ads</p>
-        <h2 class="kj-h2" style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 72px; line-height: 1; text-transform: uppercase">Ads that look<br>like <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; text-transform: none; color: #D9FF03">films.</span></h2>
+        <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Mono', monospace; color: #0E1116">004 — Digital Marketing Ads</p>
+        <h2 class="kj-h2" style="margin: 0; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 72px; line-height: 1.02; text-transform: none; letter-spacing: -0.035em">Ads that look<br>like <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; text-transform: none; color: #0E1116">films.</span></h2>
       </div>
-      <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px; color: #D9D6D2; font-size: 17px">
+      <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px; color: #3A3A3A; font-size: 17px">
         <p style="margin: 0">Most agencies run your ads with stock footage or whatever you send them. I shoot the creative myself, cut it for every format, then run and optimise the campaigns — so the brand and the ads never drift apart.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 10px">
-          <span style="padding: 8px 14px; background: #000000; border: 1px solid #333232; border-radius: 999px; font-size: 14px">Instagram &amp; Facebook</span>
-          <span style="padding: 8px 14px; background: #000000; border: 1px solid #333232; border-radius: 999px; font-size: 14px">TikTok</span>
-          <span style="padding: 8px 14px; background: #000000; border: 1px solid #333232; border-radius: 999px; font-size: 14px">Google &amp; YouTube</span>
-          <span style="padding: 8px 14px; background: #000000; border: 1px solid #333232; border-radius: 999px; font-size: 14px">Snapchat</span>
+          <span style="padding: 8px 14px; background: transparent; border: 1px solid #E5E8EC; border-radius: 999px; font-size: 14px">Instagram &amp; Facebook</span>
+          <span style="padding: 8px 14px; background: transparent; border: 1px solid #E5E8EC; border-radius: 999px; font-size: 14px">TikTok</span>
+          <span style="padding: 8px 14px; background: transparent; border: 1px solid #E5E8EC; border-radius: 999px; font-size: 14px">Google &amp; YouTube</span>
+          <span style="padding: 8px 14px; background: transparent; border: 1px solid #E5E8EC; border-radius: 999px; font-size: 14px">Snapchat</span>
         </div>
       </div>
     </div>
@@ -663,131 +708,131 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
     <div style="margin-top: 88px; display: flex; flex-direction: column; gap: 32px">
       <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
         <div>
-          <p style="margin: 0 0 10px; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #D9FF03">Meta ads — Instagram &amp; Facebook</p>
-          <h3 style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 48px; line-height: 1; text-transform: uppercase">Carousel ads that stop the scroll.</h3>
+          <p style="margin: 0 0 10px; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Mono', monospace; color: #0E1116">Meta ads — Instagram &amp; Facebook</p>
+          <h3 style="margin: 0; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 48px; line-height: 1.02; text-transform: none; letter-spacing: -0.035em">Carousel ads that stop the scroll.</h3>
         </div>
-        <p style="margin: 0; max-width: 420px; color: #A6A8AB; font-size: 15px">Shot in-house and cut into swipeable cards — one product, one message per card. Example creative from our brand builds.</p>
+        <p style="margin: 0; max-width: 420px; color: #555555; font-size: 15px">Shot in-house and cut into swipeable cards — one product, one message per card. Example creative from our brand builds.</p>
       </div>
       <div style="display: flex; flex-wrap: wrap; gap: 28px; justify-content: center">
-      <article class="ad-phone" aria-label="Example Layla Flowers carousel ad" style="flex: none; width: 300px; background: #FFFFFF; color: #141414; border-radius: 32px; border: 8px solid #262525; overflow: hidden; font-family: Inter, system-ui, sans-serif">
+      <article class="ad-phone" aria-label="Example Layla Flowers carousel ad" style="flex: none; width: 300px; background: #FFFFFF; color: #0E1116; border-radius: 32px; border: 8px solid #262525; overflow: hidden; font-family: Inter, system-ui, sans-serif">
         <div style="display: flex; align-items: center; gap: 10px; padding: 14px 14px 10px">
           <span style="width: 36px; height: 36px; border-radius: 50%; background: #23225E; display: flex; align-items: center; justify-content: center; overflow: hidden; flex: none"><img src="images/ly-logo-light.png" alt="" style="width: 30px; height: auto"></span>
           <div style="display: flex; flex-direction: column; line-height: 1.25"><span style="font-size: 14px; font-weight: 600">Layla Flowers</span><span style="font-size: 12px; color: #737373">Sponsored</span></div>
         </div>
-        <p style="margin: 0; padding: 0 14px 12px; font-size: 13px; line-height: 1.45; color: #141414">Hand-tied bouquets, orchids and rose boxes — wrapped in our signature paper and delivered across Dubai.</p>
+        <p style="margin: 0; padding: 0 14px 12px; font-size: 13px; line-height: 1.45; color: #0E1116">Hand-tied bouquets, orchids and rose boxes — wrapped in our signature paper and delivered across Dubai.</p>
         <div style="overflow: hidden; padding-left: 14px">
           <div class="ad-track">
-            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 6px; overflow: hidden; background: #FFFFFF">
+            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 22px; overflow: hidden; background: #FFFFFF">
               <img src="images/ly-bouquet.jpg" alt="Tulip bouquet in Layla Flowers wrapping" loading="lazy" style="display: block; width: 240px; height: 240px; object-fit: cover">
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; border-top: 1px solid #EFEFEF">
-                <span style="font-size: 13px; font-weight: 600; color: #141414; line-height: 1.3">Spring Tulip Bouquet</span>
-                <span style="flex: none; font-size: 12px; font-weight: 600; color: #141414; background: #EFEFEF; padding: 6px 10px; border-radius: 6px">Shop now</span>
+                <span style="font-size: 13px; font-weight: 600; color: #0E1116; line-height: 1.3">Spring Tulip Bouquet</span>
+                <span style="flex: none; font-size: 12px; font-weight: 600; color: #0E1116; background: #EFEFEF; padding: 6px 10px; border-radius: 22px">Shop now</span>
               </div>
             </div>
-            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 6px; overflow: hidden; background: #FFFFFF">
+            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 22px; overflow: hidden; background: #FFFFFF">
               <img src="images/ly-roses.jpg" alt="Cream roses in a Layla Flowers hat box" loading="lazy" style="display: block; width: 240px; height: 240px; object-fit: cover">
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; border-top: 1px solid #EFEFEF">
-                <span style="font-size: 13px; font-weight: 600; color: #141414; line-height: 1.3">Ivory Rose Box</span>
-                <span style="flex: none; font-size: 12px; font-weight: 600; color: #141414; background: #EFEFEF; padding: 6px 10px; border-radius: 6px">Shop now</span>
+                <span style="font-size: 13px; font-weight: 600; color: #0E1116; line-height: 1.3">Ivory Rose Box</span>
+                <span style="flex: none; font-size: 12px; font-weight: 600; color: #0E1116; background: #EFEFEF; padding: 6px 10px; border-radius: 22px">Shop now</span>
               </div>
             </div>
-            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 6px; overflow: hidden; background: #FFFFFF">
+            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 22px; overflow: hidden; background: #FFFFFF">
               <img src="images/ly-orchids.jpg" alt="White orchids in a Layla Flowers gift bag" loading="lazy" style="display: block; width: 240px; height: 240px; object-fit: cover">
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; border-top: 1px solid #EFEFEF">
-                <span style="font-size: 13px; font-weight: 600; color: #141414; line-height: 1.3">Orchid Gift Bag</span>
-                <span style="flex: none; font-size: 12px; font-weight: 600; color: #141414; background: #EFEFEF; padding: 6px 10px; border-radius: 6px">Shop now</span>
+                <span style="font-size: 13px; font-weight: 600; color: #0E1116; line-height: 1.3">Orchid Gift Bag</span>
+                <span style="flex: none; font-size: 12px; font-weight: 600; color: #0E1116; background: #EFEFEF; padding: 6px 10px; border-radius: 22px">Shop now</span>
               </div>
             </div>
-            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 6px; overflow: hidden; background: #FFFFFF">
+            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 22px; overflow: hidden; background: #FFFFFF">
               <img src="images/ly-tulips.jpg" alt="Pink tulips in a vase with Layla ribbon" loading="lazy" style="display: block; width: 240px; height: 240px; object-fit: cover">
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; border-top: 1px solid #EFEFEF">
-                <span style="font-size: 13px; font-weight: 600; color: #141414; line-height: 1.3">Tulips in a Vase</span>
-                <span style="flex: none; font-size: 12px; font-weight: 600; color: #141414; background: #EFEFEF; padding: 6px 10px; border-radius: 6px">Shop now</span>
+                <span style="font-size: 13px; font-weight: 600; color: #0E1116; line-height: 1.3">Tulips in a Vase</span>
+                <span style="flex: none; font-size: 12px; font-weight: 600; color: #0E1116; background: #EFEFEF; padding: 6px 10px; border-radius: 22px">Shop now</span>
               </div>
             </div>
           </div>
         </div>
-        <div style="display: flex; align-items: center; gap: 14px; padding: 12px 14px 16px"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-9.2-8.6C1.2 8.2 3 4.5 6.6 4.5c2 0 3.3 1.1 4 2.3h.8c.7-1.2 2-2.3 4-2.3 3.6 0 5.4 3.7 3.8 6.9C19 15.6 12 20 12 20z"></path></svg><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-4.1A8.5 8.5 0 1 1 20.5 11.5z"></path></svg><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 10 14"></path><path d="M21 3l-7 18-4-7-7-4z"></path></svg><span style="margin-left: auto; display: flex"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"></path></svg></span></div>
+        <div style="display: flex; align-items: center; gap: 14px; padding: 12px 14px 16px"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1116" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-9.2-8.6C1.2 8.2 3 4.5 6.6 4.5c2 0 3.3 1.1 4 2.3h.8c.7-1.2 2-2.3 4-2.3 3.6 0 5.4 3.7 3.8 6.9C19 15.6 12 20 12 20z"></path></svg><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1116" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-4.1A8.5 8.5 0 1 1 20.5 11.5z"></path></svg><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1116" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 10 14"></path><path d="M21 3l-7 18-4-7-7-4z"></path></svg><span style="margin-left: auto; display: flex"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1116" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"></path></svg></span></div>
       </article>
-      <article class="ad-phone" aria-label="Example Sama Beirut carousel ad" style="flex: none; width: 300px; background: #FFFFFF; color: #141414; border-radius: 32px; border: 8px solid #262525; overflow: hidden; font-family: Inter, system-ui, sans-serif">
+      <article class="ad-phone" aria-label="Example Sama Beirut carousel ad" style="flex: none; width: 300px; background: #FFFFFF; color: #0E1116; border-radius: 32px; border: 8px solid #262525; overflow: hidden; font-family: Inter, system-ui, sans-serif">
         <div style="display: flex; align-items: center; gap: 10px; padding: 14px 14px 10px">
           <span style="width: 36px; height: 36px; border-radius: 50%; background: #7A1414; display: flex; align-items: center; justify-content: center; overflow: hidden; flex: none"><img src="images/sb-logo-light.png" alt="" style="width: 24px; height: auto"></span>
           <div style="display: flex; flex-direction: column; line-height: 1.25"><span style="font-size: 14px; font-weight: 600">Sama Beirut</span><span style="font-size: 12px; color: #737373">Sponsored</span></div>
         </div>
-        <p style="margin: 0; padding: 0 14px 12px; font-size: 13px; line-height: 1.45; color: #141414">Butchery &amp; more — cut fresh every morning, packed in our signature box and delivered to your door.</p>
+        <p style="margin: 0; padding: 0 14px 12px; font-size: 13px; line-height: 1.45; color: #0E1116">Butchery &amp; more — cut fresh every morning, packed in our signature box and delivered to your door.</p>
         <div style="overflow: hidden; padding-left: 14px">
           <div class="ad-track d2">
-            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 6px; overflow: hidden; background: #FFFFFF">
+            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 22px; overflow: hidden; background: #FFFFFF">
               <img src="images/sb-meatbox.jpg" alt="Sama Beirut meat box" loading="lazy" style="display: block; width: 240px; height: 240px; object-fit: cover">
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; border-top: 1px solid #EFEFEF">
-                <span style="font-size: 13px; font-weight: 600; color: #141414; line-height: 1.3">The BBQ Box</span>
-                <span style="flex: none; font-size: 12px; font-weight: 600; color: #141414; background: #EFEFEF; padding: 6px 10px; border-radius: 6px">Order now</span>
+                <span style="font-size: 13px; font-weight: 600; color: #0E1116; line-height: 1.3">The BBQ Box</span>
+                <span style="flex: none; font-size: 12px; font-weight: 600; color: #0E1116; background: #EFEFEF; padding: 6px 10px; border-radius: 22px">Order now</span>
               </div>
             </div>
-            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 6px; overflow: hidden; background: #FFFFFF">
+            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 22px; overflow: hidden; background: #FFFFFF">
               <img src="images/sb-trays.jpg" alt="Sama Beirut steak and chicken trays" loading="lazy" style="display: block; width: 240px; height: 240px; object-fit: cover">
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; border-top: 1px solid #EFEFEF">
-                <span style="font-size: 13px; font-weight: 600; color: #141414; line-height: 1.3">Fresh Cuts Daily</span>
-                <span style="flex: none; font-size: 12px; font-weight: 600; color: #141414; background: #EFEFEF; padding: 6px 10px; border-radius: 6px">Order now</span>
+                <span style="font-size: 13px; font-weight: 600; color: #0E1116; line-height: 1.3">Fresh Cuts Daily</span>
+                <span style="flex: none; font-size: 12px; font-weight: 600; color: #0E1116; background: #EFEFEF; padding: 6px 10px; border-radius: 22px">Order now</span>
               </div>
             </div>
-            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 6px; overflow: hidden; background: #FFFFFF">
+            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 22px; overflow: hidden; background: #FFFFFF">
               <img src="images/sb-bread.jpg" alt="Sama Beirut bread bags" loading="lazy" style="display: block; width: 240px; height: 240px; object-fit: cover">
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; border-top: 1px solid #EFEFEF">
-                <span style="font-size: 13px; font-weight: 600; color: #141414; line-height: 1.3">Fresh Bread</span>
-                <span style="flex: none; font-size: 12px; font-weight: 600; color: #141414; background: #EFEFEF; padding: 6px 10px; border-radius: 6px">Order now</span>
+                <span style="font-size: 13px; font-weight: 600; color: #0E1116; line-height: 1.3">Fresh Bread</span>
+                <span style="flex: none; font-size: 12px; font-weight: 600; color: #0E1116; background: #EFEFEF; padding: 6px 10px; border-radius: 22px">Order now</span>
               </div>
             </div>
-            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 6px; overflow: hidden; background: #FFFFFF">
+            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 22px; overflow: hidden; background: #FFFFFF">
               <img src="images/sb-van2.jpg" alt="Sama Beirut delivery van" loading="lazy" style="display: block; width: 240px; height: 240px; object-fit: cover">
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; border-top: 1px solid #EFEFEF">
-                <span style="font-size: 13px; font-weight: 600; color: #141414; line-height: 1.3">Delivered Fresh</span>
-                <span style="flex: none; font-size: 12px; font-weight: 600; color: #141414; background: #EFEFEF; padding: 6px 10px; border-radius: 6px">Order now</span>
+                <span style="font-size: 13px; font-weight: 600; color: #0E1116; line-height: 1.3">Delivered Fresh</span>
+                <span style="flex: none; font-size: 12px; font-weight: 600; color: #0E1116; background: #EFEFEF; padding: 6px 10px; border-radius: 22px">Order now</span>
               </div>
             </div>
           </div>
         </div>
-        <div style="display: flex; align-items: center; gap: 14px; padding: 12px 14px 16px"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-9.2-8.6C1.2 8.2 3 4.5 6.6 4.5c2 0 3.3 1.1 4 2.3h.8c.7-1.2 2-2.3 4-2.3 3.6 0 5.4 3.7 3.8 6.9C19 15.6 12 20 12 20z"></path></svg><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-4.1A8.5 8.5 0 1 1 20.5 11.5z"></path></svg><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 10 14"></path><path d="M21 3l-7 18-4-7-7-4z"></path></svg><span style="margin-left: auto; display: flex"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"></path></svg></span></div>
+        <div style="display: flex; align-items: center; gap: 14px; padding: 12px 14px 16px"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1116" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-9.2-8.6C1.2 8.2 3 4.5 6.6 4.5c2 0 3.3 1.1 4 2.3h.8c.7-1.2 2-2.3 4-2.3 3.6 0 5.4 3.7 3.8 6.9C19 15.6 12 20 12 20z"></path></svg><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1116" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-4.1A8.5 8.5 0 1 1 20.5 11.5z"></path></svg><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1116" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 10 14"></path><path d="M21 3l-7 18-4-7-7-4z"></path></svg><span style="margin-left: auto; display: flex"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1116" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"></path></svg></span></div>
       </article>
-      <article class="ad-phone" aria-label="Example Fairform carousel ad" style="flex: none; width: 300px; background: #FFFFFF; color: #141414; border-radius: 32px; border: 8px solid #262525; overflow: hidden; font-family: Inter, system-ui, sans-serif">
+      <article class="ad-phone" aria-label="Example Fairform carousel ad" style="flex: none; width: 300px; background: #FFFFFF; color: #0E1116; border-radius: 32px; border: 8px solid #262525; overflow: hidden; font-family: Inter, system-ui, sans-serif">
         <div style="display: flex; align-items: center; gap: 10px; padding: 14px 14px 10px">
           <span style="width: 36px; height: 36px; border-radius: 50%; background: #0B3B2A; display: flex; align-items: center; justify-content: center; flex: none"><svg aria-hidden="true" viewBox="0 0 64 54" style="width: 20px; height: auto"><path d="M63.05,0.68 L62.76,0.28 L62.27,0.06 L59.89,0.05 L59.16,0.31 L57.38,1.49 L56.62,2.20 L55.93,3.06 L53.03,8.06 L51.93,9.56 L50.28,11.48 L48.50,13.09 L46.88,14.30 L44.75,15.45 L43.44,15.94 L41.88,16.16 L39.38,16.18 L36.19,15.83 L32.62,14.86 L29.56,13.83 L22.62,11.16 L20.88,10.78 L19.83,10.91 L19.02,11.54 L18.29,12.75 L15.69,18.94 L15.52,19.61 L15.59,20.11 L15.82,20.40 L16.16,20.60 L17.44,20.75 L53.62,20.71 L54.24,20.55 L55.14,19.90 L55.80,18.81 L62.77,2.88 L63.15,1.56 Z" fill="#D9FF03"></path><path d="M1.16,53.31 L1.43,53.69 L1.91,53.89 L4.23,53.89 L5.05,53.59 L6.68,52.48 L7.50,51.73 L8.18,50.87 L10.93,46.12 L12.27,44.25 L13.58,42.75 L15.31,41.08 L17.00,39.77 L19.00,38.63 L20.56,38.04 L22.25,37.79 L24.56,37.75 L28.12,38.16 L32.12,39.29 L41.38,42.79 L43.25,43.21 L44.30,43.08 L45.06,42.51 L45.68,41.50 L49.19,33.25 L49.45,32.38 L49.40,31.82 L49.18,31.52 L48.84,31.33 L47.62,31.19 L11.31,31.23 L10.64,31.41 L9.85,32.04 L9.20,33.13 L1.36,51.00 L1.01,52.25 Z" fill="#D9FF03"></path></svg></span>
           <div style="display: flex; flex-direction: column; line-height: 1.25"><span style="font-size: 14px; font-weight: 600">Fairform</span><span style="font-size: 12px; color: #737373">Sponsored</span></div>
         </div>
-        <p style="margin: 0; padding: 0 14px 12px; font-size: 13px; line-height: 1.45; color: #141414">A new form of golf. Built for the round, worn beyond it — polos, skirts and caps in five colourways.</p>
+        <p style="margin: 0; padding: 0 14px 12px; font-size: 13px; line-height: 1.45; color: #0E1116">A new form of golf. Built for the round, worn beyond it — polos, skirts and caps in five colourways.</p>
         <div style="overflow: hidden; padding-left: 14px">
           <div class="ad-track d3">
-            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 6px; overflow: hidden; background: #FFFFFF">
+            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 22px; overflow: hidden; background: #FFFFFF">
               <img src="images/ff-polos.jpg" alt="Folded Fairform polos" loading="lazy" style="display: block; width: 240px; height: 240px; object-fit: cover">
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; border-top: 1px solid #EFEFEF">
-                <span style="font-size: 13px; font-weight: 600; color: #141414; line-height: 1.3">The Everyday Polo</span>
-                <span style="flex: none; font-size: 12px; font-weight: 600; color: #141414; background: #EFEFEF; padding: 6px 10px; border-radius: 6px">Shop now</span>
+                <span style="font-size: 13px; font-weight: 600; color: #0E1116; line-height: 1.3">The Everyday Polo</span>
+                <span style="flex: none; font-size: 12px; font-weight: 600; color: #0E1116; background: #EFEFEF; padding: 6px 10px; border-radius: 22px">Shop now</span>
               </div>
             </div>
-            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 6px; overflow: hidden; background: #FFFFFF">
+            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 22px; overflow: hidden; background: #FFFFFF">
               <img src="images/ff-skirts.jpg" alt="Fairform pleated golf skirts" loading="lazy" style="display: block; width: 240px; height: 240px; object-fit: cover">
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; border-top: 1px solid #EFEFEF">
-                <span style="font-size: 13px; font-weight: 600; color: #141414; line-height: 1.3">Pleated Golf Skirt</span>
-                <span style="flex: none; font-size: 12px; font-weight: 600; color: #141414; background: #EFEFEF; padding: 6px 10px; border-radius: 6px">Shop now</span>
+                <span style="font-size: 13px; font-weight: 600; color: #0E1116; line-height: 1.3">Pleated Golf Skirt</span>
+                <span style="flex: none; font-size: 12px; font-weight: 600; color: #0E1116; background: #EFEFEF; padding: 6px 10px; border-radius: 22px">Shop now</span>
               </div>
             </div>
-            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 6px; overflow: hidden; background: #FFFFFF">
+            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 22px; overflow: hidden; background: #FFFFFF">
               <img src="images/ff-couple.jpg" alt="Couple in Fairform polos" loading="lazy" style="display: block; width: 240px; height: 240px; object-fit: cover">
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; border-top: 1px solid #EFEFEF">
-                <span style="font-size: 13px; font-weight: 600; color: #141414; line-height: 1.3">Match Your Round</span>
-                <span style="flex: none; font-size: 12px; font-weight: 600; color: #141414; background: #EFEFEF; padding: 6px 10px; border-radius: 6px">Shop now</span>
+                <span style="font-size: 13px; font-weight: 600; color: #0E1116; line-height: 1.3">Match Your Round</span>
+                <span style="flex: none; font-size: 12px; font-weight: 600; color: #0E1116; background: #EFEFEF; padding: 6px 10px; border-radius: 22px">Shop now</span>
               </div>
             </div>
-            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 6px; overflow: hidden; background: #FFFFFF">
+            <div style="flex: none; width: 240px; border: 1px solid #DBDBDB; border-radius: 22px; overflow: hidden; background: #FFFFFF">
               <img src="images/ff-bagtag.jpg" alt="Fairform leather bag tag" loading="lazy" style="display: block; width: 240px; height: 240px; object-fit: cover">
               <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px; border-top: 1px solid #EFEFEF">
-                <span style="font-size: 13px; font-weight: 600; color: #141414; line-height: 1.3">Leather Bag Tag</span>
-                <span style="flex: none; font-size: 12px; font-weight: 600; color: #141414; background: #EFEFEF; padding: 6px 10px; border-radius: 6px">Shop now</span>
+                <span style="font-size: 13px; font-weight: 600; color: #0E1116; line-height: 1.3">Leather Bag Tag</span>
+                <span style="flex: none; font-size: 12px; font-weight: 600; color: #0E1116; background: #EFEFEF; padding: 6px 10px; border-radius: 22px">Shop now</span>
               </div>
             </div>
           </div>
         </div>
-        <div style="display: flex; align-items: center; gap: 14px; padding: 12px 14px 16px"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-9.2-8.6C1.2 8.2 3 4.5 6.6 4.5c2 0 3.3 1.1 4 2.3h.8c.7-1.2 2-2.3 4-2.3 3.6 0 5.4 3.7 3.8 6.9C19 15.6 12 20 12 20z"></path></svg><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-4.1A8.5 8.5 0 1 1 20.5 11.5z"></path></svg><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 10 14"></path><path d="M21 3l-7 18-4-7-7-4z"></path></svg><span style="margin-left: auto; display: flex"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"></path></svg></span></div>
+        <div style="display: flex; align-items: center; gap: 14px; padding: 12px 14px 16px"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1116" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-9.2-8.6C1.2 8.2 3 4.5 6.6 4.5c2 0 3.3 1.1 4 2.3h.8c.7-1.2 2-2.3 4-2.3 3.6 0 5.4 3.7 3.8 6.9C19 15.6 12 20 12 20z"></path></svg><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1116" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20l1.2-4.1A8.5 8.5 0 1 1 20.5 11.5z"></path></svg><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1116" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 10 14"></path><path d="M21 3l-7 18-4-7-7-4z"></path></svg><span style="margin-left: auto; display: flex"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1116" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"></path></svg></span></div>
       </article>
       </div>
     </div>
@@ -795,10 +840,10 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
     <div style="margin-top: 96px; display: flex; flex-direction: column; gap: 32px">
       <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
         <div>
-          <p style="margin: 0 0 10px; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #D9FF03">Google Search ads</p>
-          <h3 style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 48px; line-height: 1; text-transform: uppercase">Win the top spot on Google.</h3>
+          <p style="margin: 0 0 10px; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Mono', monospace; color: #0E1116">Google Search ads</p>
+          <h3 style="margin: 0; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 48px; line-height: 1.02; text-transform: none; letter-spacing: -0.035em">Win the top spot on Google.</h3>
         </div>
-        <p style="margin: 0; max-width: 420px; color: #A6A8AB; font-size: 15px">Show up first when customers in the UAE search for what you sell. Example ads from our brand builds.</p>
+        <p style="margin: 0; max-width: 420px; color: #555555; font-size: 15px">Show up first when customers in the UAE search for what you sell. Example ads from our brand builds.</p>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px">
       <article aria-label="Example Google search ad for Layla Flowers" style="background: #FFFFFF; color: #202124; border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 18px; font-family: Arial, Helvetica, sans-serif; min-width: 0">
@@ -814,10 +859,10 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
           <div style="display: flex; flex-wrap: wrap; gap: 6px 18px; padding-top: 4px"><span style="color: #1A0DAB; font-size: 14px">Bouquets</span><span style="color: #1A0DAB; font-size: 14px">Rose Boxes</span><span style="color: #1A0DAB; font-size: 14px">Orchids</span><span style="color: #1A0DAB; font-size: 14px">Gift Bags</span></div>
         </div>
         <div aria-hidden="true" style="display: flex; flex-direction: column; gap: 8px; padding-top: 18px; border-top: 1px solid #EBEBEB">
-          <span style="width: 40%; height: 10px; background: #EBEBEB; border-radius: 4px"></span>
-          <span style="width: 70%; height: 14px; background: #E3E3F3; border-radius: 4px"></span>
-          <span style="width: 92%; height: 10px; background: #EFEFEF; border-radius: 4px"></span>
-          <span style="width: 60%; height: 10px; background: #EFEFEF; border-radius: 4px"></span>
+          <span style="width: 40%; height: 10px; background: #EBEBEB; border-radius: 18px"></span>
+          <span style="width: 70%; height: 14px; background: #E3E3F3; border-radius: 18px"></span>
+          <span style="width: 92%; height: 10px; background: #EFEFEF; border-radius: 18px"></span>
+          <span style="width: 60%; height: 10px; background: #EFEFEF; border-radius: 18px"></span>
         </div>
       </article>
       <article aria-label="Example Google search ad for Fairform" style="background: #FFFFFF; color: #202124; border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 18px; font-family: Arial, Helvetica, sans-serif; min-width: 0">
@@ -833,81 +878,81 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
           <div style="display: flex; flex-wrap: wrap; gap: 6px 18px; padding-top: 4px"><span style="color: #1A0DAB; font-size: 14px">Skirts</span><span style="color: #1A0DAB; font-size: 14px">Polos</span><span style="color: #1A0DAB; font-size: 14px">Caps</span><span style="color: #1A0DAB; font-size: 14px">New In</span></div>
         </div>
         <div aria-hidden="true" style="display: flex; flex-direction: column; gap: 8px; padding-top: 18px; border-top: 1px solid #EBEBEB">
-          <span style="width: 40%; height: 10px; background: #EBEBEB; border-radius: 4px"></span>
-          <span style="width: 70%; height: 14px; background: #E3E3F3; border-radius: 4px"></span>
-          <span style="width: 92%; height: 10px; background: #EFEFEF; border-radius: 4px"></span>
-          <span style="width: 60%; height: 10px; background: #EFEFEF; border-radius: 4px"></span>
+          <span style="width: 40%; height: 10px; background: #EBEBEB; border-radius: 18px"></span>
+          <span style="width: 70%; height: 14px; background: #E3E3F3; border-radius: 18px"></span>
+          <span style="width: 92%; height: 10px; background: #EFEFEF; border-radius: 18px"></span>
+          <span style="width: 60%; height: 10px; background: #EFEFEF; border-radius: 18px"></span>
         </div>
       </article>
       </div>
       <div>
-        <p style="margin: 0 0 4px; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #A6A8AB">What decides your ad rank — and what we optimise</p>
+        <p style="margin: 0 0 4px; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Mono', monospace; color: #555555">What decides your ad rank — and what we optimise</p>
         <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); column-gap: 24px">
-        <li style="display: flex; flex-direction: column; gap: 6px; padding: 18px 0; border-top: 1px solid #333232"><span style="font-family: Anton, Impact, sans-serif; font-size: 22px; text-transform: uppercase; color: #F2EFEB">Keyword strategy</span><span style="font-size: 14px; color: #A6A8AB">The searches your customers actually type — by area, intent and language.</span></li>
-        <li style="display: flex; flex-direction: column; gap: 6px; padding: 18px 0; border-top: 1px solid #333232"><span style="font-family: Anton, Impact, sans-serif; font-size: 22px; text-transform: uppercase; color: #F2EFEB">Ad relevance</span><span style="font-size: 14px; color: #A6A8AB">Headlines and descriptions written to match each search.</span></li>
-        <li style="display: flex; flex-direction: column; gap: 6px; padding: 18px 0; border-top: 1px solid #333232"><span style="font-family: Anton, Impact, sans-serif; font-size: 22px; text-transform: uppercase; color: #F2EFEB">Landing page</span><span style="font-size: 14px; color: #A6A8AB">Fast pages that continue the ad's promise and convert.</span></li>
-        <li style="display: flex; flex-direction: column; gap: 6px; padding: 18px 0; border-top: 1px solid #333232"><span style="font-family: Anton, Impact, sans-serif; font-size: 22px; text-transform: uppercase; color: #F2EFEB">Bid strategy</span><span style="font-size: 14px; color: #A6A8AB">Spend focused on the searches that bring enquiries and sales.</span></li>
-        <li style="display: flex; flex-direction: column; gap: 6px; padding: 18px 0; border-top: 1px solid #333232"><span style="font-family: Anton, Impact, sans-serif; font-size: 22px; text-transform: uppercase; color: #F2EFEB">Assets</span><span style="font-size: 14px; color: #A6A8AB">Sitelinks, callouts and images that make the ad bigger and clickable.</span></li>
+        <li style="display: flex; flex-direction: column; gap: 6px; padding: 18px 0; border-top: 1px solid #E5E8EC"><span style="font-family: 'Manrope', sans-serif; font-size: 22px; text-transform: none; color: #0E1116; letter-spacing: -0.035em">Keyword strategy</span><span style="font-size: 14px; color: #555555">The searches your customers actually type — by area, intent and language.</span></li>
+        <li style="display: flex; flex-direction: column; gap: 6px; padding: 18px 0; border-top: 1px solid #E5E8EC"><span style="font-family: 'Manrope', sans-serif; font-size: 22px; text-transform: none; color: #0E1116; letter-spacing: -0.035em">Ad relevance</span><span style="font-size: 14px; color: #555555">Headlines and descriptions written to match each search.</span></li>
+        <li style="display: flex; flex-direction: column; gap: 6px; padding: 18px 0; border-top: 1px solid #E5E8EC"><span style="font-family: 'Manrope', sans-serif; font-size: 22px; text-transform: none; color: #0E1116; letter-spacing: -0.035em">Landing page</span><span style="font-size: 14px; color: #555555">Fast pages that continue the ad's promise and convert.</span></li>
+        <li style="display: flex; flex-direction: column; gap: 6px; padding: 18px 0; border-top: 1px solid #E5E8EC"><span style="font-family: 'Manrope', sans-serif; font-size: 22px; text-transform: none; color: #0E1116; letter-spacing: -0.035em">Bid strategy</span><span style="font-size: 14px; color: #555555">Spend focused on the searches that bring enquiries and sales.</span></li>
+        <li style="display: flex; flex-direction: column; gap: 6px; padding: 18px 0; border-top: 1px solid #E5E8EC"><span style="font-family: 'Manrope', sans-serif; font-size: 22px; text-transform: none; color: #0E1116; letter-spacing: -0.035em">Assets</span><span style="font-size: 14px; color: #555555">Sitelinks, callouts and images that make the ad bigger and clickable.</span></li>
         </ul>
       </div>
     </div>
-    <div style="margin-top: 56px; text-align: center"><a href="/digital-marketing-ads-dubai/" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #D9FF03; color: #000000; font-weight: 600; text-decoration: none">See Meta, Google, YouTube &amp; TikTok ad mock-ups →</a></div>
+    <div style="margin-top: 56px; text-align: center"><a href="/digital-marketing-ads-dubai/" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #DCF76A; color: #0E1116; font-weight: 600; text-decoration: none">See Meta, Google, YouTube &amp; TikTok ad mock-ups<span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; margin-left: 12px; margin-right: -14px; border-radius: 50%; background: #0E1116; color: #DCF76A; font-size: 14px">↗</span></a></div>
   </section>
 
   <!-- Work -->
   <section id="work" class="kj-pad" style="padding: 96px 56px">
     <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 40px">
       <div>
-        <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #D9FF03">005 — Selected work</p>
-        <h2 class="kj-h2" style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 72px; line-height: 1; text-transform: uppercase">From the portfolio.</h2>
+        <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Mono', monospace; color: #0E1116">005 — Selected work</p>
+        <h2 class="kj-h2" style="margin: 0; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 72px; line-height: 1.02; text-transform: none; letter-spacing: -0.035em">From the portfolio.</h2>
       </div>
     </div>
     <div style="columns: 3 300px; column-gap: 12px">
       <a href="https://www.behance.net/kjose" target="_blank" rel="noopener" aria-label="Butchery flat lay of labelled steak cuts, lamb chops and boerewors — view on Behance" style="display: block; margin: 0 0 12px; break-inside: avoid; color: inherit; text-decoration: none">
       <figure style="margin: 0; position: relative">
-        <img src="images/pf-butchery-flatlay.jpg" alt="Butchery flat lay of labelled steak cuts, lamb chops and boerewors" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 4px">
+        <img src="images/pf-butchery-flatlay.jpg" alt="Butchery flat lay of labelled steak cuts, lamb chops and boerewors" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 18px">
         <figcaption style="position: absolute; left: 12px; top: 12px; padding: 6px 10px; background: #000000; color: #F2EFEB; font-size: 12px; border-radius: 999px">Food &amp; product</figcaption>
       </figure>
       </a>
       <a href="https://www.behance.net/kjose" target="_blank" rel="noopener" aria-label="Black-and-white portrait of a chef holding a whole hammour fish — view on Behance" style="display: block; margin: 0 0 12px; break-inside: avoid; color: inherit; text-decoration: none">
       <figure style="margin: 0; position: relative">
-        <img src="images/pf-chef-portrait.jpg" alt="Black-and-white portrait of a chef holding a whole hammour fish" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 4px">
+        <img src="images/pf-chef-portrait.jpg" alt="Black-and-white portrait of a chef holding a whole hammour fish" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 18px">
         <figcaption style="position: absolute; left: 12px; top: 12px; padding: 6px 10px; background: #000000; color: #F2EFEB; font-size: 12px; border-radius: 999px">Chef portrait</figcaption>
       </figure>
       </a>
       <a href="https://www.behance.net/kjose" target="_blank" rel="noopener" aria-label="Studio headshot of a woman in a black top on a warm backdrop — view on Behance" style="display: block; margin: 0 0 12px; break-inside: avoid; color: inherit; text-decoration: none">
       <figure style="margin: 0; position: relative">
-        <img src="images/pf-portrait.jpg" alt="Studio headshot of a woman in a black top on a warm backdrop" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 4px">
+        <img src="images/pf-portrait.jpg" alt="Studio headshot of a woman in a black top on a warm backdrop" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 18px">
         <figcaption style="position: absolute; left: 12px; top: 12px; padding: 6px 10px; background: #000000; color: #F2EFEB; font-size: 12px; border-radius: 999px">Portrait</figcaption>
       </figure>
       </a>
       <a href="https://www.behance.net/kjose" target="_blank" rel="noopener" aria-label="Two palm trees silhouetted against an orange sunset on a UAE golf course — view on Behance" style="display: block; margin: 0 0 12px; break-inside: avoid; color: inherit; text-decoration: none">
       <figure style="margin: 0; position: relative">
-        <img src="images/pf-golf-sunset.jpg" alt="Two palm trees silhouetted against an orange sunset on a UAE golf course" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 4px">
+        <img src="images/pf-golf-sunset.jpg" alt="Two palm trees silhouetted against an orange sunset on a UAE golf course" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 18px">
         <figcaption style="position: absolute; left: 12px; top: 12px; padding: 6px 10px; background: #000000; color: #F2EFEB; font-size: 12px; border-radius: 999px">Landscape</figcaption>
       </figure>
       </a>
       <a href="https://www.behance.net/kjose" target="_blank" rel="noopener" aria-label="Cinematic film still of a girl holding a book in warm low light — view on Behance" style="display: block; margin: 0 0 12px; break-inside: avoid; color: inherit; text-decoration: none">
       <figure style="margin: 0; position: relative">
-        <img src="images/pf-film-still.jpg" alt="Cinematic film still of a girl holding a book in warm low light" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 4px">
+        <img src="images/pf-film-still.jpg" alt="Cinematic film still of a girl holding a book in warm low light" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 18px">
         <figcaption style="position: absolute; left: 12px; top: 12px; padding: 6px 10px; background: #000000; color: #F2EFEB; font-size: 12px; border-radius: 999px">Film still</figcaption>
       </figure>
       </a>
       <a href="https://www.behance.net/kjose" target="_blank" rel="noopener" aria-label="Corporate portrait of a warehouse worker in front of blue storage racks — view on Behance" style="display: block; margin: 0 0 12px; break-inside: avoid; color: inherit; text-decoration: none">
       <figure style="margin: 0; position: relative">
-        <img src="images/pf-corporate-portrait.jpg" alt="Corporate portrait of a warehouse worker in front of blue storage racks" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 4px">
+        <img src="images/pf-corporate-portrait.jpg" alt="Corporate portrait of a warehouse worker in front of blue storage racks" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 18px">
         <figcaption style="position: absolute; left: 12px; top: 12px; padding: 6px 10px; background: #000000; color: #F2EFEB; font-size: 12px; border-radius: 999px">Corporate portrait</figcaption>
       </figure>
       </a>
       <a href="https://www.behance.net/kjose" target="_blank" rel="noopener" aria-label="Wedding film still of a couple in the Dubai desert — view on Behance" style="display: block; margin: 0 0 12px; break-inside: avoid; color: inherit; text-decoration: none">
       <figure style="margin: 0; position: relative">
-        <img src="images/pf-wedding-film.jpg" alt="Wedding film still of a couple in the Dubai desert" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 4px">
+        <img src="images/pf-wedding-film.jpg" alt="Wedding film still of a couple in the Dubai desert" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 18px">
         <figcaption style="position: absolute; left: 12px; top: 12px; padding: 6px 10px; background: #000000; color: #F2EFEB; font-size: 12px; border-radius: 999px">Wedding film</figcaption>
       </figure>
       </a>
       <a href="https://www.behance.net/kjose" target="_blank" rel="noopener" aria-label="Travel film still of houseboats in Alleppey, Kerala — view on Behance" style="display: block; margin: 0 0 12px; break-inside: avoid; color: inherit; text-decoration: none">
       <figure style="margin: 0; position: relative">
-        <img src="images/pf-travel-film.jpg" alt="Travel film still of houseboats in Alleppey, Kerala" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 4px">
+        <img src="images/pf-travel-film.jpg" alt="Travel film still of houseboats in Alleppey, Kerala" loading="lazy" style="display: block; width: 100%; height: auto; border-radius: 18px">
         <figcaption style="position: absolute; left: 12px; top: 12px; padding: 6px 10px; background: #000000; color: #F2EFEB; font-size: 12px; border-radius: 999px">Travel film</figcaption>
       </figure>
       </a>
@@ -916,67 +961,67 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
   </section>
 
   <!-- Gear -->
-  <section id="gear" class="kj-pad" style="padding: 64px 56px; border-top: 1px solid #333232; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
+  <section id="gear" class="kj-pad" style="padding: 64px 56px; border-top: 1px solid #E5E8EC; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
     <div style="flex: 1 1 420px; min-width: 0">
-      <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #D9FF03">006 — Gear rental</p>
-      <h2 style="margin: 0 0 12px; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 48px; line-height: 1; text-transform: uppercase">Rent the kit.</h2>
-      <p style="margin: 0; color: #D9D6D2; max-width: 560px">Cameras, lenses, lighting and grip — the same kit used on shoots. Day &amp; weekend rates, Dubai pickup and drop-off.</p>
+      <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Mono', monospace; color: #0E1116">006 — Gear rental</p>
+      <h2 style="margin: 0 0 12px; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 48px; line-height: 1.02; text-transform: none; letter-spacing: -0.035em">Rent the kit.</h2>
+      <p style="margin: 0; color: #3A3A3A; max-width: 560px">Cameras, lenses, lighting and grip — the same kit used on shoots. Day &amp; weekend rates, Dubai pickup and drop-off.</p>
     </div>
-    <a href="/camera-rental-dubai/" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border: 1px solid #5A5959; text-decoration: none; border-radius: 999px">Check availability</a>
+    <a href="/camera-rental-dubai/" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border: 1px solid #E5E8EC; text-decoration: none; border-radius: 999px">Check availability</a>
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="kj-pad" style="padding: 96px 56px; border-top: 1px solid #333232; display: flex; flex-wrap: wrap; gap: 56px">
+  <section id="faq" class="kj-pad" style="padding: 96px 56px; border-top: 1px solid #E5E8EC; display: flex; flex-wrap: wrap; gap: 56px">
     <div style="flex: 1 1 320px; min-width: 0">
-      <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #D9FF03">FAQ</p>
-      <h2 class="kj-h2" style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 64px; line-height: 1; text-transform: uppercase">Good<br>questions.</h2>
+      <p style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Mono', monospace; color: #0E1116">FAQ</p>
+      <h2 class="kj-h2" style="margin: 0; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 64px; line-height: 1.02; text-transform: none; letter-spacing: -0.035em">Good<br>questions.</h2>
     </div>
-    <div style="flex: 999 1 560px; min-width: 0; border-top: 1px solid #333232">
-      <details style="border-bottom: 1px solid #333232; padding: 4px 0">
+    <div style="flex: 999 1 560px; min-width: 0; border-top: 1px solid #E5E8EC">
+      <details style="border-bottom: 1px solid #E5E8EC; padding: 4px 0">
         <summary style="min-height: 56px; display: flex; align-items: center; cursor: pointer; font-size: 19px; font-weight: 500">Where are you based, and do you work outside Dubai?</summary>
-        <p style="margin: 0 0 20px; color: #D9D6D2; max-width: 760px">I'm based in Dubai and work across the UAE — including Abu Dhabi, Sharjah and the Northern Emirates — and take on projects abroad, such as the Sama Beirut brand build.</p>
+        <p style="margin: 0 0 20px; color: #3A3A3A; max-width: 760px">I'm based in Dubai and work across the UAE — including Abu Dhabi, Sharjah and the Northern Emirates — and take on projects abroad, such as the Sama Beirut brand build.</p>
       </details>
-      <details style="border-bottom: 1px solid #333232; padding: 4px 0">
+      <details style="border-bottom: 1px solid #E5E8EC; padding: 4px 0">
         <summary style="min-height: 56px; display: flex; align-items: center; cursor: pointer; font-size: 19px; font-weight: 500">What photography and videography services do you offer in Dubai?</summary>
-        <p style="margin: 0 0 20px; color: #D9D6D2; max-width: 760px">Brand films, commercial and product photography, food and lifestyle shoots, real estate photography and video, weddings and events — shot on Sony FX3 and A7R V.</p>
+        <p style="margin: 0 0 20px; color: #3A3A3A; max-width: 760px">Brand films, commercial and product photography, food and lifestyle shoots, real estate photography and video, weddings and events — shot on Sony FX3 and A7R V.</p>
       </details>
-      <details style="border-bottom: 1px solid #333232; padding: 4px 0">
+      <details style="border-bottom: 1px solid #E5E8EC; padding: 4px 0">
         <summary style="min-height: 56px; display: flex; align-items: center; cursor: pointer; font-size: 19px; font-weight: 500">What is included in a brand building project?</summary>
-        <p style="margin: 0 0 20px; color: #D9D6D2; max-width: 760px">A full brand from scratch: strategy and positioning, logo and visual identity, brand guidelines, tone of voice and mood, brand photography, and a website or ecommerce store ready to launch.</p>
+        <p style="margin: 0 0 20px; color: #3A3A3A; max-width: 760px">A full brand from scratch: strategy and positioning, logo and visual identity, brand guidelines, tone of voice and mood, brand photography, and a website or ecommerce store ready to launch.</p>
       </details>
-      <details style="border-bottom: 1px solid #333232; padding: 4px 0">
+      <details style="border-bottom: 1px solid #E5E8EC; padding: 4px 0">
         <summary style="min-height: 56px; display: flex; align-items: center; cursor: pointer; font-size: 19px; font-weight: 500">Which platforms do you run digital marketing ads on?</summary>
-        <p style="margin: 0 0 20px; color: #D9D6D2; max-width: 760px">Instagram and Facebook (Meta), TikTok, Google and YouTube, and Snapchat — with campaigns targeted to audiences in the UAE.</p>
+        <p style="margin: 0 0 20px; color: #3A3A3A; max-width: 760px">Instagram and Facebook (Meta), TikTok, Google and YouTube, and Snapchat — with campaigns targeted to audiences in the UAE.</p>
       </details>
-      <details style="border-bottom: 1px solid #333232; padding: 4px 0">
+      <details style="border-bottom: 1px solid #E5E8EC; padding: 4px 0">
         <summary style="min-height: 56px; display: flex; align-items: center; cursor: pointer; font-size: 19px; font-weight: 500">Do you create the ad content yourself?</summary>
-        <p style="margin: 0 0 20px; color: #D9D6D2; max-width: 760px">Yes. I shoot and edit the ad creative in-house — video, stills and vertical reels — so your ads match your brand and are cut for every placement.</p>
+        <p style="margin: 0 0 20px; color: #3A3A3A; max-width: 760px">Yes. I shoot and edit the ad creative in-house — video, stills and vertical reels — so your ads match your brand and are cut for every placement.</p>
       </details>
-      <details style="border-bottom: 1px solid #333232; padding: 4px 0">
+      <details style="border-bottom: 1px solid #E5E8EC; padding: 4px 0">
         <summary style="min-height: 56px; display: flex; align-items: center; cursor: pointer; font-size: 19px; font-weight: 500">Can I rent camera and lighting gear in Dubai?</summary>
-        <p style="margin: 0 0 20px; color: #D9D6D2; max-width: 760px">Yes. Cameras, lenses, lighting and grip are available on day and weekend rates, with pickup and drop-off in Dubai.</p>
+        <p style="margin: 0 0 20px; color: #3A3A3A; max-width: 760px">Yes. Cameras, lenses, lighting and grip are available on day and weekend rates, with pickup and drop-off in Dubai.</p>
       </details>
-      <details style="border-bottom: 1px solid #333232; padding: 4px 0">
+      <details style="border-bottom: 1px solid #E5E8EC; padding: 4px 0">
         <summary style="min-height: 56px; display: flex; align-items: center; cursor: pointer; font-size: 19px; font-weight: 500">How do I book a project?</summary>
-        <p style="margin: 0 0 20px; color: #D9D6D2; max-width: 760px">Send an enquiry through the form on this page or email sales@kevinjosephotography.com. I usually reply within a couple of days.</p>
+        <p style="margin: 0 0 20px; color: #3A3A3A; max-width: 760px">Send an enquiry through the form on this page or email sales@kevinjosephotography.com. I usually reply within a couple of days.</p>
       </details>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="kj-pad" style="padding: 96px 56px; background: #F2EFEB; color: #000000; display: flex; flex-wrap: wrap; gap: 56px">
+  <section id="contact" class="kj-pad" style="margin: 16px; border-radius: 36px; padding: 96px 56px; background: #F1F3F5; color: #000000; display: flex; flex-wrap: wrap; gap: 56px">
     <div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
-      <p style="margin: 0; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: #695AC6">007 — Enquire</p>
-      <h2 class="kj-h2" style="margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 72px; line-height: 1; text-transform: uppercase">Let's build<br>something <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; text-transform: none">good.</span></h2>
+      <p style="margin: 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; font-family: 'DM Mono', monospace; color: #4F6BED">007 — Enquire</p>
+      <h2 class="kj-h2" style="margin: 0; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 72px; line-height: 1.02; text-transform: none; letter-spacing: -0.035em">Let's build<br>something <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; text-transform: none">good.</span></h2>
       <p style="margin: 0; font-size: 18px; color: #5A5959">A shoot, a full brand, an ad campaign — or all three. I'll reply within a couple of days.</p>
     </div>
     <form id="enquiry" style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
-        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Name<input type="text" name="name" required autocomplete="name" style="min-height: 48px; padding: 0 14px; border: 1px solid #8E9093; border-radius: 6px; background: #FFFFFF; font: 16px Inter, sans-serif"></label>
-        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Email<input type="email" name="email" required autocomplete="email" style="min-height: 48px; padding: 0 14px; border: 1px solid #8E9093; border-radius: 6px; background: #FFFFFF; font: 16px Inter, sans-serif"></label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Name<input type="text" name="name" required autocomplete="name" style="min-height: 48px; padding: 0 14px; border: 1px solid #8E9093; border-radius: 22px; background: #FFFFFF; font: 16px Inter, sans-serif"></label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Email<input type="email" name="email" required autocomplete="email" style="min-height: 48px; padding: 0 14px; border: 1px solid #8E9093; border-radius: 22px; background: #FFFFFF; font: 16px Inter, sans-serif"></label>
       </div>
       <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">What do you need?
-        <select name="service" style="min-height: 48px; padding: 0 12px; border: 1px solid #8E9093; border-radius: 6px; background: #FFFFFF; font: 16px Inter, sans-serif">
+        <select name="service" style="min-height: 48px; padding: 0 12px; border: 1px solid #8E9093; border-radius: 22px; background: #FFFFFF; font: 16px Inter, sans-serif">
           <option>Brand film / photography</option>
           <option>Brand building (logo → website)</option>
           <option>Digital marketing ads</option>
@@ -988,24 +1033,24 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
         </select>
       </label>
       <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Monthly ad budget (if relevant)
-        <select name="budget" style="min-height: 48px; padding: 0 12px; border: 1px solid #8E9093; border-radius: 6px; background: #FFFFFF; font: 16px Inter, sans-serif">
+        <select name="budget" style="min-height: 48px; padding: 0 12px; border: 1px solid #8E9093; border-radius: 22px; background: #FFFFFF; font: 16px Inter, sans-serif">
           <option>Not running ads yet</option>
           <option>Under AED 5,000</option>
           <option>AED 5,000 – 20,000</option>
           <option>AED 20,000+</option>
         </select>
       </label>
-      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Project details<textarea name="details" rows="5" style="padding: 12px 14px; border: 1px solid #8E9093; border-radius: 6px; background: #FFFFFF; font: 16px Inter, sans-serif; resize: vertical"></textarea></label>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Project details<textarea name="details" rows="5" style="padding: 12px 14px; border: 1px solid #8E9093; border-radius: 22px; background: #FFFFFF; font: 16px Inter, sans-serif; resize: vertical"></textarea></label>
       <button type="submit" style="min-height: 52px; padding: 0 28px; border: 0; border-radius: 999px; background: #000000; color: #F2EFEB; font: 600 16px Inter, sans-serif; cursor: pointer; align-self: flex-start">Send enquiry →</button>
     </form>
   </section>
 
   <!-- Footer -->
-  <footer class="kj-pad" style="padding: 40px 56px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: #A6A8AB">
+  <footer class="kj-pad" style="padding: 40px 56px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: #555555">
     <span>© 2026 Kevin Jose · Dubai, UAE</span>
     <span>Photography, videography, branding &amp; digital ads — Dubai, Abu Dhabi, Sharjah &amp; across the UAE</span>
     <a href="#top">Back to top ↑</a>
-    <nav aria-label="Services" style="flex-basis: 100%; line-height: 2"><a href="/brand-film-dubai/" style="color: #A6A8AB">Brand Films</a> · <a href="/food-product-photography-dubai/" style="color: #A6A8AB">Food &amp; Product Photography</a> · <a href="/real-estate-photography-dubai/" style="color: #A6A8AB">Real Estate Photography</a> · <a href="/wedding-photographer-dubai/" style="color: #A6A8AB">Wedding Photography</a> · <a href="/branding-dubai/" style="color: #A6A8AB">Branding</a> · <a href="/digital-marketing-ads-dubai/" style="color: #A6A8AB">Digital Ads</a> · <a href="/camera-rental-dubai/" style="color: #A6A8AB">Camera Rental</a></nav>
+    <nav aria-label="Services" style="flex-basis: 100%; line-height: 2"><a href="/brand-film-dubai/" style="color: #555555">Brand Films</a> · <a href="/food-product-photography-dubai/" style="color: #555555">Food &amp; Product Photography</a> · <a href="/real-estate-photography-dubai/" style="color: #555555">Real Estate Photography</a> · <a href="/wedding-photographer-dubai/" style="color: #555555">Wedding Photography</a> · <a href="/branding-dubai/" style="color: #555555">Branding</a> · <a href="/digital-marketing-ads-dubai/" style="color: #555555">Digital Ads</a> · <a href="/camera-rental-dubai/" style="color: #555555">Camera Rental</a></nav>
   </footer>
 </div>
 <script>
@@ -1017,5 +1062,9 @@ document.getElementById('enquiry').addEventListener('submit', function (e) {
 });
 </script>
 <script>document.addEventListener('click',function(e){document.querySelectorAll('details.sn-menu[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})});</script>
+<script>
+document.getElementById('gh-form').addEventListener('submit',function(e){e.preventDefault();var t=document.getElementById('gh-input').value;var d=document.querySelector('#enquiry textarea');if(d&&t){d.value=t;}document.getElementById('contact').scrollIntoView({behavior:'smooth'});setTimeout(function(){var n=document.querySelector('#enquiry input[name=name]');if(n)n.focus({preventScroll:true});},700);});
+document.addEventListener('click',function(e){document.querySelectorAll('details.gh-menu[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})});
+</script>
 </body>
 </html>
