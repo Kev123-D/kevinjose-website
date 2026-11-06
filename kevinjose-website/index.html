@@ -140,7 +140,24 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
   .kj-pad{padding-left:20px !important;padding-right:20px !important}
 }
 </style>
-<style>html{scroll-behavior:smooth}img{max-width:100%}</style>
+<style>html{scroll-behavior:smooth}img{max-width:100%}
+.sn{position:relative;z-index:70;border-bottom:1px solid #333232;background:#000}
+.sn-in{max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 56px}
+.sn-logo{font-family:Anton,Impact,sans-serif;font-size:26px;letter-spacing:.04em;text-decoration:none;color:#F2EFEB;white-space:nowrap}
+.sn-logo span{color:#D9FF03}
+.sn-links{display:flex;gap:24px;font-size:14px;font-family:Inter,system-ui,sans-serif}
+.sn-links a{color:#D9D6D2;text-decoration:none;white-space:nowrap;padding:10px 0}
+.sn-links a:hover,.sn-links a[aria-current=page]{color:#D9FF03}
+.sn-cta{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;background:#D9FF03;color:#000 !important;font:600 14px Inter,system-ui,sans-serif;text-decoration:none;white-space:nowrap}
+.sn-menu{display:none;position:relative}
+.sn-menu summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;min-height:46px;padding:0 18px;border:1px solid #5A5959;border-radius:999px;color:#F2EFEB;font:500 14px Inter,system-ui,sans-serif}
+.sn-menu summary::-webkit-details-marker{display:none}
+.sn-panel{position:absolute;right:0;top:calc(100% + 10px);width:min(300px,calc(100vw - 40px));padding:8px;background:#201F1F;border:1px solid #333232;border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.55)}
+.sn-panel a{display:block;padding:12px 14px;border-radius:8px;color:#F2EFEB;text-decoration:none;font:15px Inter,system-ui,sans-serif}
+.sn-panel a:hover,.sn-panel a[aria-current=page]{background:#333232;color:#D9FF03}
+.sn-panel .sn-sep{border-top:1px solid #333232;margin-top:6px;padding-top:12px}
+@media (max-width:1180px){.sn-links,.sn-in>.sn-cta{display:none}.sn-menu{display:block}.sn-in{padding:16px 20px}}
+</style>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -153,18 +170,14 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
   </div>
 
   <!-- Nav -->
-  <header class="kj-pad" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 20px 56px; border-bottom: 1px solid #333232; flex-wrap: wrap">
-    <a href="#top" style="font-family: Anton, Impact, sans-serif; font-size: 26px; letter-spacing: 0.04em; text-decoration: none">KEVIN JOSE<span style="color: #D9FF03">.</span></a>
-    <nav class="kj-navlinks" aria-label="Main" style="display: flex; gap: 32px; font-size: 14px; flex-wrap: wrap">
-      <a href="#services" style="text-decoration: none">Services</a>
-      <a href="#brand" style="text-decoration: none">Brand Building</a>
-      <a href="#ads" style="text-decoration: none">Digital Ads</a>
-      <a href="#work" style="text-decoration: none">Work</a>
-      <a href="#clients" style="text-decoration: none">Clients</a>
-      <a href="#gear" style="text-decoration: none">Rentals</a>
-    </nav>
-    <a href="#contact" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 20px; background: #D9FF03; color: #000000; font-weight: 600; font-size: 14px; text-decoration: none; border-radius: 999px">Start a project →</a>
-  </header>
+  <header class="sn"><div class="sn-in">
+  <a class="sn-logo" href="/">KEVIN JOSE<span>.</span></a>
+  <nav class="sn-links" aria-label="Services"><a href="/brand-film-dubai/">Brand Films</a><a href="/food-product-photography-dubai/">Food &amp; Product</a><a href="/real-estate-photography-dubai/">Real Estate</a><a href="/wedding-photographer-dubai/">Weddings</a><a href="/branding-dubai/">Branding</a><a href="/digital-marketing-ads-dubai/">Digital Ads</a><a href="/camera-rental-dubai/">Gear Rental</a></nav>
+  <a class="sn-cta" href="#contact">Start a project →</a>
+  <details class="sn-menu"><summary aria-label="Open menu"><svg aria-hidden="true" width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M0 1h16M0 6h16M0 11h16"></path></svg>Menu</summary>
+    <div class="sn-panel"><a href="/brand-film-dubai/">Brand Films</a><a href="/food-product-photography-dubai/">Food &amp; Product</a><a href="/real-estate-photography-dubai/">Real Estate</a><a href="/wedding-photographer-dubai/">Weddings</a><a href="/branding-dubai/">Branding</a><a href="/digital-marketing-ads-dubai/">Digital Ads</a><a href="/camera-rental-dubai/">Gear Rental</a><a class="sn-sep" href="#work">Work</a><a href="#contact" style="color:#D9FF03">Start a project →</a></div>
+  </details>
+</div></header>
 
   <!-- Hero -->
   <section id="top" class="kj-pad" style="padding: 88px 56px 72px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-end">
@@ -565,11 +578,15 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
       <div class="ff-row" style="overflow: hidden; width: 100%">
         <div class="ff-track">
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-golfer.jpg" alt="Golfer in a cream Fairform polo and pleated skirt on a Dubai golf course" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <img src="images/ff-golfer.jpg" alt="Model in a green Fairform polo and cream trousers seated on a block, studio campaign" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Campaign</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-couple.jpg" alt="Couple in matching forest-green Fairform polos at golden hour" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <img src="images/ff-studio-couple.jpg" alt="Couple in Fairform polos and cream golf wear in a green-lit studio" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Campaign</figcaption>
+          </figure>
+          <figure style="margin: 0; position: relative; flex: none">
+            <img src="images/ff-couple.jpg" alt="Two models in forest-green and cream Fairform polos with golf clubs, studio campaign" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 12%; border-radius: 6px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Campaign</figcaption>
           </figure>
           <figure style="margin: 0; position: relative; flex: none">
@@ -581,7 +598,11 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Campaign</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
-            <img src="images/ff-couple.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <img src="images/ff-studio-couple.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px">
+            <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Campaign</figcaption>
+          </figure>
+          <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
+            <img src="images/ff-couple.jpg" alt="" loading="lazy" style="display: block; height: 340px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 12%; border-radius: 6px">
             <figcaption style="position: absolute; left: 14px; bottom: 14px; padding: 6px 12px; background: #000000; color: #F2EFEB; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Campaign</figcaption>
           </figure>
           <figure aria-hidden="true" style="margin: 0; position: relative; flex: none">
@@ -830,6 +851,7 @@ a{color:#F2EFEB}a:hover{color:#D9FF03}
         </ul>
       </div>
     </div>
+    <div style="margin-top: 56px; text-align: center"><a href="/digital-marketing-ads-dubai/" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #D9FF03; color: #000000; font-weight: 600; text-decoration: none">See Meta, Google, YouTube &amp; TikTok ad mock-ups →</a></div>
   </section>
 
   <!-- Work -->
@@ -994,5 +1016,6 @@ document.getElementById('enquiry').addEventListener('submit', function (e) {
   window.location.href = 'mailto:sales@kevinjosephotography.com?subject=' + encodeURIComponent('Project enquiry — ' + f.elements['service'].value) + '&body=' + encodeURIComponent(body);
 });
 </script>
+<script>document.addEventListener('click',function(e){document.querySelectorAll('details.sn-menu[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})});</script>
 </body>
 </html>
